@@ -562,61 +562,6 @@
             return;
           }
 
-          // --- Print helper: open printer-friendly popup and autoclose after printing ---
-          function printShoppingList() {
-            const printableEl = document.getElementById('printable-shopping-list') || document.querySelector('.shopping-list');
-            if (!printableEl) {
-              alert('No shopping list found to print.');
-              return;
-            }
-
-            const popup = window.open('', '_blank', 'width=900,height=700,menubar=no,toolbar=no,location=no');
-            if (!popup) {
-              alert('Popup blocked. Please allow popups for this site or use the browser Print command.');
-              return;
-            }
-
-            const styles = `
-              <style>
-                body{font-family: Arial, Helvetica, sans-serif; color:#222; margin:20px}
-                h1{font-size:1.2rem; margin-bottom:8px}
-                .item{border-bottom:1px solid #ddd; padding:8px 0}
-                .item-title{font-weight:700; font-size:1rem}
-                .item-for{font-size:0.95rem; color:#444; margin-top:4px}
-                .item-details{margin-top:6px; font-size:0.95rem; color:#222}
-                .tag-pill{display:inline-block;padding:2px 8px;border-radius:999px;background:#fff7df;border:1px solid #ffe7b3;font-size:0.8rem;margin-right:6px}
-              </style>`;
-
-            popup.document.open();
-            popup.document.write('<!doctype html><html><head><meta charset="utf-8"><title>My Shopping List</title>' + styles + '</head><body>');
-            popup.document.write('<h1>My Shopping List</h1>');
-            popup.document.write(printableEl.innerHTML);
-            popup.document.write('</body></html>');
-            popup.document.close();
-            popup.focus();
-
-            // Try to close after printing. Use onafterprint when available, and a timeout fallback.
-            try {
-              popup.onafterprint = function() { try { popup.close(); } catch(e){} };
-            } catch (e) {
-              // ignore
-            }
-
-            setTimeout(() => {
-              try {
-                popup.print();
-              } catch (e) {
-                console.error('Print failed:', e);
-                alert('Printing failed. You can use the browser print dialog instead.');
-              }
-
-              // Fallback: close popup shortly after print() call
-              setTimeout(() => {
-                try { popup.close(); } catch (e) {}
-              }, 1500);
-            }, 300);
-          }
-
           const itemEl = buttonEl.closest('.item');
           if (!itemEl) return;
 
@@ -653,6 +598,79 @@
           alert('Network error unclaiming item.');
         });
     }
+    // --- Print helper: open printer-friendly popup and autoclose after printing ---
+    function printShoppingList() {
+      const printableEl =
+        document.getElementById('printable-shopping-list') ||
+        document.querySelector('.shopping-list');
+
+      if (!printableEl) {
+        alert('No shopping list found to print.');
+        return;
+      }
+
+      const popup = window.open('', '_blank', 'width=900,height=700,menubar=no,toolbar=no,location=no');
+      if (!popup) {
+        alert('Popup blocked. Please allow popups for this site or use the browser Print command.');
+        return;
+      }
+
+      const styles = `
+        <style>
+          body{font-family: Arial, Helvetica, sans-serif; color:#222; margin:20px}
+          h1{font-size:1.2rem; margin-bottom:8px}
+          .item{border-bottom:1px solid #ddd; padding:8px 0}
+          .item-title{font-weight:700; font-size:1rem}
+          .item-for{font-size:0.95rem; color:#444; margin-top:4px}
+          .item-details{margin-top:6px; font-size:0.95rem; color:#222}
+          .tag-pill{
+            display:inline-block;
+            padding:2px 8px;
+            border-radius:999px;
+            background:#fff7df;
+            border:1px solid #ffe7b3;
+            font-size:0.8rem;
+            margin-right:6px
+          }
+        </style>`;
+
+      popup.document.open();
+      popup.document.write(
+        '<!doctype html><html><head><meta charset="utf-8">' +
+        '<title>My Shopping List</title>' +
+        styles +
+        '</head><body>'
+      );
+      popup.document.write('<h1>My Shopping List</h1>');
+      popup.document.write(printableEl.innerHTML);
+      popup.document.write('</body></html>');
+      popup.document.close();
+      popup.focus();
+
+      // Try to close after printing. Use onafterprint when available, and a timeout fallback.
+      try {
+        popup.onafterprint = function() {
+          try { popup.close(); } catch(e) {}
+        };
+      } catch (e) {
+        // ignore
+      }
+
+      setTimeout(() => {
+        try {
+          popup.print();
+        } catch (e) {
+          console.error('Print failed:', e);
+          alert('Printing failed. You can use the browser print dialog instead.');
+        }
+
+        // Fallback: close popup shortly after print() call
+        setTimeout(() => {
+          try { popup.close(); } catch (e) {}
+        }, 1500);
+      }, 300);
+    }
+
 
     // --- My wishlist (view only) ---
     function showMyWishlist() {
