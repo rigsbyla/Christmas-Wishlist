@@ -1,0 +1,1775 @@
+{
+  "people": [
+    {
+      "code": "LAUREN",
+      "name": "Lauren"
+    },
+    {
+      "code": "TAYLOR",
+      "name": "Taylor"
+    },
+    {
+      "code": "FRANKIE",
+      "name": "Frankie"
+    },
+    {
+      "code": "VICKI",
+      "name": "Vicki"
+    },
+    {
+      "code": "JASON",
+      "name": "Jason"
+    },
+    {
+      "code": "DENNIS",
+      "name": "Dennis"
+    },
+    {
+      "code": "MARILYN",
+      "name": "Marilyn"
+    }
+  ],
+  "items": [
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Good smelling hand lotion",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 1,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "tiny lego sets",
+      "notes": "fake legos good too",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 2,
+      "details": "fake legos good too",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "bath bombs",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 3,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "cute magnetic chip clips",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 4,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "nice nail clippers",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 5,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "stickers (like for a water bottle)",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 6,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "coloring book",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 7,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "small speaker that sounds ok",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 8,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "mini projector",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 9,
+      "details": "",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Several Smith Tea Black Tea",
+      "notes": "Portland Breakfast or British Brunch are my favorites",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 10,
+      "details": "Portland Breakfast or British Brunch are my favorites",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Speks Odds",
+      "notes": "it's a fidget toy thing",
+      "url": "https://www.getspeks.com/products/odds-silicone-magnets?variant=41319526924375",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 11,
+      "details": "it's a fidget toy thing",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "A big table or like thing that goes on top of the table to make it big",
+      "notes": "for DND. The link is a really expensive one, but this is the idea",
+      "url": "https://www.etsy.com/listing/1431852060/stagetop-gaming-table-elite-version-a?gpla=1&gao=1&",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 12,
+      "details": "for DND. The link is a really expensive one, but this is the idea",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "socks",
+      "notes": "Size 9.5-10  I would just like some regular ankle socks that feel sturdy. I'm all set on fuzzy socks.",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "socks",
+      "id": 13,
+      "details": "Size 9.5-10  I would just like some regular ankle socks that feel sturdy. I'm all set on fuzzy socks.",
+      "tags": [
+        "socks"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Something cute for sax players",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "",
+      "id": 14,
+      "details": "",
+      "tags": []
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "new phone charging cord for the car",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "",
+      "id": 15,
+      "details": "",
+      "tags": []
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "hot honey",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "",
+      "id": 16,
+      "details": "",
+      "tags": []
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "any kind of tea",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "",
+      "id": 17,
+      "details": "",
+      "tags": []
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Fully metal fabric scissors",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 18,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "Something that smells good",
+      "notes": "",
+      "url": "",
+      "claimedByCode": null,
+      "tag": "stocking stuffer/small/cheap",
+      "id": 19,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "small puzzle",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 20,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "pens",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 21,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "higher quality short sleeve T-Shirts or henleys",
+      "notes": "solid colors, Size: XL",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 22,
+      "details": "solid colors, Size: XL",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "nintendo switch 2",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 23,
+      "details": "",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "socks I guess",
+      "notes": 11.5,
+      "url": "",
+      "claimedByCode": "",
+      "tag": "socks",
+      "id": 24,
+      "details": "11.5",
+      "tags": [
+        "socks"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "Milka chocolate",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 25,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "architecture books",
+      "notes": "I can always use architecture books. Any book on this list, particularly Zumthor or Khan:",
+      "url": "https://www.archdaily.com/901525/116-best-architecture-books-for-architects-and-students",
+      "claimedByCode": "",
+      "tag": "books",
+      "id": 26,
+      "details": "I can always use architecture books. Any book on this list, particularly Zumthor or Khan:",
+      "tags": [
+        "books"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "bath towel",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "useful",
+      "id": 27,
+      "details": "",
+      "tags": [
+        "useful"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "a thing to take hot things out of the oven",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "useful",
+      "id": 28,
+      "details": "",
+      "tags": [
+        "useful"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "metal fidget toy",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 29,
+      "details": "",
+      "tags": [
+        "work related"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "a hardback sketch book",
+      "notes": "no grid or lines",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 30,
+      "details": "no grid or lines",
+      "tags": [
+        "work related"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "pinking shears",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 31,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "quilting clips",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 32,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "wireless iron",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 33,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "DND dice",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 34,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "dice tower",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 35,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "fake plants that look real",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 36,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "cute shaped rugs",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 37,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "most kinds of chocolate",
+      "notes": "caramel filled especially",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 38,
+      "details": "caramel filled especially",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Milka hazelnut cream",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 39,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "bag of seasoned oyster crackers",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 40,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "good cheese",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 41,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "kindle gift card",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "books",
+      "id": 42,
+      "details": "",
+      "tags": [
+        "books"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Scents",
+      "notes": "Spiced (like pumpkin) or scents that say __wood (Cedarwood, sandalwood, etc)",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "scents",
+      "id": 43,
+      "details": "Spiced (like pumpkin) or scents that say __wood (Cedarwood, sandalwood, etc)",
+      "tags": [
+        "scents"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "Rings",
+      "notes": "especially unusual or different rings, silver, no stones.",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "jewelry",
+      "id": 44,
+      "details": "especially unusual or different rings, silver, no stones.",
+      "tags": [
+        "jewelry"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "pay someone to clean my house?",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "activities",
+      "id": 45,
+      "details": "",
+      "tags": [
+        "activities"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "pop socket with mag safe charge through.",
+      "notes": "I don't know if this exists",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "useful",
+      "id": 46,
+      "details": "I don't know if this exists",
+      "tags": [
+        "useful"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "fidget toys",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 47,
+      "details": "",
+      "tags": [
+        "work related"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "desk mat",
+      "notes": "my office is mostly green",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 48,
+      "details": "my office is mostly green",
+      "tags": [
+        "work related"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "cute small string of lights",
+      "notes": "plug in, not battery",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 49,
+      "details": "plug in, not battery",
+      "tags": [
+        "work related"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "smart plugs",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 50,
+      "details": "",
+      "tags": [
+        "work related"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "cat toys",
+      "notes": "with no strings or small parts they can eat",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "other",
+      "id": 51,
+      "details": "with no strings or small parts they can eat",
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "cat treats",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "other",
+      "id": 52,
+      "details": "",
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "tall scratching post",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "other",
+      "id": 53,
+      "details": "",
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "LAUREN",
+      "recipientName": "Lauren",
+      "itemName": "cat wall hammock",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "other",
+      "id": 54,
+      "details": "",
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Healthy snacks",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 55,
+      "details": "",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "small travel jewelry box",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 56,
+      "details": "",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "25 lb weights",
+      "notes": "like these:",
+      "url": "https://www.amazon.com/Fitvids-Dumbbells-Weights-Exercises-Fitness/dp/B0FMYG8LML/ref=sr_1_2_sspa?crid=2UB772C1R8HF3&dib=eyJ2IjoiMSJ9.YnH0_5hrSjBXUMg87pFCjgZ3hxO709A2_3m9u2KpCnC6z7T_i_bLfbc-Dzi6amDGMhpJ_-xD_H3PwlsNegI2dXTjPezDIuHJbp_kfmWcCfOCF-BAmFFubswVEHNZA2jIYLJGLykeNGR_BE9ek3w5d7biPYi7J7QFVFj6vgH5TRQ1H7yl_kw1cwlpuWk7gLPZ_RFKaIBnTwSBXkQROZvFN3-gfKU_ark6ZR10LfoOKlJYkie2tI1noj6rIhISo6LfDPZIooF95-LEcA1UbhSCAyyKxBrBk0ZC4_SmqoHMlMw.qnfmLbn-7ooTCuOWiOZoLedxDzANESnr1BLFpt0VTNo&dib_tag=se&keywords=25%2Blb%2Bweights&qid=1763399891&sprefix=25%2Blb%2Bweigt%2Caps%2C152&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 57,
+      "details": "like these:",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Watercolor set by Grabie",
+      "notes": "",
+      "url": "https://www.amazon.com/gp/aw/d/B0CRKNTLCB/?_encoding=UTF8&pd_rd_plhdr=t&aaxitk=c2918b0d60c3b0628e447915510b4e8c&hsa_cr_id=0&qid=1763399398&sr=1-3-f02f01d6-adaf-4bef-9a7c-29308eff9043&ref_=sbx__sbtcd2_asin_2_title&pd_rd_w=7AHQf&content-id=amzn1.sym.e2c9099f-6964-4dbf-9ce9-8bc2c1a8ec1a%3Aamzn1.sym.e2c9099f-6964-4dbf-9ce9-8bc2c1a8ec1a&pf_rd_p=e2c9099f-6964-4dbf-9ce9-8bc2c1a8ec1a&pf_rd_r=K2A2FN9EVYMJT50FC5C0&pd_rd_wg=pob7n&pd_rd_r=1f829920-3891-48b9-9fef-e2ae8bf78205&th=1",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 58,
+      "details": "",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Trip to Europe",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 59,
+      "details": "",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "New Saxophone",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 60,
+      "details": "",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Socks",
+      "notes": "Good running socks are always good, like ones with tab backs.",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "socks",
+      "id": 61,
+      "details": "Good running socks are always good, like ones with tab backs.",
+      "tags": [
+        "socks"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "watercolor paints",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 62,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "watercolor brushes",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 63,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "painter's tape",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 64,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "heat gun for drying paintings",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 65,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "piano music",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 66,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Matching baskets to store bathroom stuff",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 67,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "storage for protein powders in the pantry",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 68,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "copper for the kitchen",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 69,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "That's It snack bars",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 70,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Undercover Quinoa Crisps",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 71,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "dried fruit",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 72,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Solely Fruit Jerky",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 73,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Simple Truth mini rice cakes",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 74,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Harvest Snaps veggie snacks",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 75,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "anything by Simple Mills",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 76,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Chomps turkey sticks",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 77,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Books",
+      "notes": "I don't read much. I like interesting coffee table books.",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "books",
+      "id": 78,
+      "details": "I don't read much. I like interesting coffee table books.",
+      "tags": [
+        "books"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Scents",
+      "notes": "Fresh, clean, flowery. Food flavors for candles only.",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "scents",
+      "id": 79,
+      "details": "Fresh, clean, flowery. Food flavors for candles only.",
+      "tags": [
+        "scents"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Astros",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "sports",
+      "id": 80,
+      "details": "",
+      "tags": [
+        "sports"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Earrings or necklaces, silver.",
+      "notes": "Dangly earrings are good, but not too big.",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "jewelry",
+      "id": 81,
+      "details": "Dangly earrings are good, but not too big.",
+      "tags": [
+        "jewelry"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Escape room",
+      "notes": "The one we did was really fun",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "activities",
+      "id": 82,
+      "details": "The one we did was really fun",
+      "tags": [
+        "activities"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Concert or musical tickets are always good.",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "activities",
+      "id": 83,
+      "details": "",
+      "tags": [
+        "activities"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "A day at the Houston Botanical Garden would be fun.",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "activities",
+      "id": 84,
+      "details": "",
+      "tags": [
+        "activities"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Tickets to a zipline park - yes!",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "activities",
+      "id": 85,
+      "details": "",
+      "tags": [
+        "activities"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Clue Conspiracy (board game)",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "board game",
+      "id": 86,
+      "details": "",
+      "tags": [
+        "board game"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "Blank Slate (board game)",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "board game",
+      "id": 87,
+      "details": "",
+      "tags": [
+        "board game"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "new wash cloths",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "useful",
+      "id": 88,
+      "details": "",
+      "tags": [
+        "useful"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "VICKI",
+      "recipientName": "Vicki",
+      "itemName": "I always love pictures of my family, especially my children.",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "other",
+      "id": 89,
+      "details": "",
+      "tags": [
+        "other"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Modest Mouse record",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "LAUREN",
+      "tag": "specific requests",
+      "id": 90,
+      "details": "",
+      "tags": [
+        "specific requests"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "socks",
+      "notes": "Size: 11/ M-L",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "specific requests",
+      "id": 91,
+      "details": "Size: 11/ M-L",
+      "tags": [
+        "specific requests"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "puzzles",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 92,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "puzzle toys",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 93,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "blue teddy bear",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 94,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "little serval figurine",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 95,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "fridge magnets",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "stocking stuffer/small/cheap",
+      "id": 96,
+      "details": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Black jean pants",
+      "notes": "Size: 30/32",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 97,
+      "details": "Size: 30/32",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "small bluetooth speaker",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 98,
+      "details": "",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "candles",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "medium",
+      "id": 99,
+      "details": "",
+      "tags": [
+        "medium"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Big bluetooth speakers",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 100,
+      "details": "",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "nice peacoat",
+      "notes": "Size: M-L",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "big/expensive",
+      "id": 101,
+      "details": "Size: M-L",
+      "tags": [
+        "big",
+        "expensive"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "I play instruments, and love doing whatever Lauren likes to do",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "hobbies",
+      "id": 102,
+      "details": "",
+      "tags": [
+        "hobbies"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Painting or portrait?",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 103,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "picture framed",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "decor",
+      "id": 104,
+      "details": "",
+      "tags": [
+        "decor"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "dark chocolate",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 105,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "peach rings",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 106,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "almonds",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "food",
+      "id": 107,
+      "details": "",
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Adventure and fantasy books",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "books",
+      "id": 108,
+      "details": "",
+      "tags": [
+        "books"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Scents",
+      "notes": "Campfire, and anything earthy",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "scents",
+      "id": 109,
+      "details": "Campfire, and anything earthy",
+      "tags": [
+        "scents"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Liverpool from a soccer team in england",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "sports",
+      "id": 110,
+      "details": "",
+      "tags": [
+        "sports"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Rings",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "jewelry",
+      "id": 111,
+      "details": "",
+      "tags": [
+        "jewelry"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Concerts",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "activities",
+      "id": 112,
+      "details": "",
+      "tags": [
+        "activities"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "I think we need spatulas",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "useful",
+      "id": 113,
+      "details": "",
+      "tags": [
+        "useful"
+      ]
+    },
+    {
+      "itemId": "",
+      "recipientCode": "FRANKIE",
+      "recipientName": "Frankie",
+      "itemName": "Warm socks",
+      "notes": "",
+      "url": "",
+      "claimedByCode": "",
+      "tag": "work related",
+      "id": 114,
+      "details": "",
+      "tags": [
+        "work related"
+      ]
+    }
+  ]
+}

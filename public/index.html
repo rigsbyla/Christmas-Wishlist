@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Family Wishlist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 16px;
+      background: linear-gradient(135deg, #fff5f5, #f7faff, #f3ffe9);
+      background-attachment: fixed;
+    }
+    .page-container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px 28px;
+      background: rgba(255, 255, 255, 0.82); /* frosted glass */
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+    .section-title {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    /* Big recipient buttons */
+    .recipient-buttons button {
+      background: #fff0f2;            /* soft pink */
+      border: 2px solid #ffd6dc;
+      border-radius: 14px;
+      padding: 12px 22px;
+      margin: 6px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+    .recipient-buttons button:hover {
+      background: #ffe3e8;
+      border-color: #ffb7c2;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+    .recipient-buttons button:active {
+      transform: scale(0.97);
+    }
+
+    /* Smaller action buttons */
+    .action-btn {
+      background: #e8f8f0;            /* soft evergreen mint */
+      border: 2px solid #c7e8d1;
+      border-radius: 10px;
+      padding: 6px 14px;
+      margin: 4px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .action-btn:hover {
+      background: #dcf5e7;            /* slightly brighter mint */
+      border-color: #b2e0c2;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .action-btn:active {
+      transform: scale(0.97);
+    }
+
+    .item-list {
+      margin-top: 12px;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
+    .item {
+      border-bottom: 1px solid #eee;
+      padding: 6px 0;
+    }
+
+    .status {
+      font-size: 0.9rem;
+      margin-left: 8px;
+    }
+    .claimed {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+    .shopping-list {
+      margin-top: 8px;
+    }
+    .small-note {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    /* Tag pills */
+    .tag-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fff7df;          /* soft golden cookie color */
+      border: 1px solid #ffe7b3;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    /* Tag filter buttons */
+    .tag-filter-bar {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .tag-filter-label {
+      font-size: 0.8rem;
+      margin-right: 4px;
+    }
+    .tag-filter-button {
+      margin: 2px 4px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .tag-filter-button.active {
+      border-color: #999;
+      font-weight: bold;
+    }
+
+    /* Right-side area in header for status + button */
+    .item-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Tags row below the title */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 4px 0;
+    }
+
+    /* Item details / description */
+    .item-details {
+      margin: 2px 0;
+    }
+
+    /* Link row */
+    .item-link a {
+      font-size: 0.85rem;
+    }
+
+    /* "For: X" line on shopping list */
+    .item-for {
+      font-size: 0.85rem;
+      margin: 2px 0;
+      color: #555;
+    }
+
+    /* A single horizontal item header row */
+    .item-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* pushes claim button to far right */
+      flex-wrap: wrap; /* wraps nicely on mobile */
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* Item title stays left */
+    .item-title {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-right: 6px;
+    }
+    /* Instruction / steps box near top of page */
+    .howto-box {
+      background: linear-gradient(180deg,#ffffff 0%,#f7f9ff 100%);
+      border: 1px solid #e6eefb;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 12px 0 10px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      font-size: 0.95rem;
+      color: #222;
+    }
+    .howto-box strong { display: block; margin-bottom: 6px; }
+    .howto-box ol { margin: 2px 0 0 18px; padding: 0; }
+    @media print {
+      .recipient-buttons, .howto-box, .tag-filter-bar, .action-btn, .item-actions, #my-wishlist-btn, #my-shopping-list-btn { display: none !important; }
+      body { background: #fff; }
+      .page-container { box-shadow: none; background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <h1>Family Wishlist</h1>
+    <p>Hello!</p>
+
+    <div class="howto-box" role="note" aria-label="How to use the wishlist">
+      <strong>How to use</strong>
+      <ol>
+        <li>Pick who you want to shop for</li>
+        <li>Click “Claim” on anything you’re going to get. Don't worry, you can click "Unclaim" if you mess up</li>
+        <li>Check “My Shopping List” when you go to buy things</li>
+      </ol>
+    </div>
+
+    <div>
+      <button id="my-wishlist-btn" class="action-btn">My Wishlist</button>
+      <button id="my-shopping-list-btn" class="action-btn">My Shopping List</button>
+    </div>
+
+    <div class="section-title">Who do you want to shop for?</div>
+    <div id="recipients" class="recipient-buttons">
+      <!-- Recipient buttons injected here -->
+    </div>
+
+    <div id="view-area">
+      <!-- List view / messages injected here -->
+    </div>
+
+    <div class="small-note" style="margin-top: 20px;">
+      Tip: You can bookmark this page so you don’t have to use the link each time.
+    </div>
+  </div>
+
+  <script>
+    // --- Config / URL params ---
+    const params = new URLSearchParams(window.location.search);
+    const USER_CODE = params.get('code'); // e.g. ?code=GRANDMA
+    const WISHLIST_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScGIXYH9aN1oqm-m36R-d6TaqMCd1ls21J6a4mDIfK6cxUfJA/viewform';
+
+    let currentTagFilter = 'ALL';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!USER_CODE) {
+        document.getElementById('view-area').innerHTML =
+          '<p class="error">Missing code. Please use your special link (like ?code=GRANDMA).</p>';
+        return;
+      }
+
+      document.getElementById('my-wishlist-btn')
+        .addEventListener('click', showMyWishlist);
+      document.getElementById('my-shopping-list-btn')
+        .addEventListener('click', showMyShoppingList);
+
+      loadRecipients();
+    });
+
+    // --- Helpers ---
+    function setViewContent(html) {
+      document.getElementById('view-area').innerHTML = html;
+    }
+
+    // Tag filter setup
+    function setupTagFilters() {
+      const bar = document.getElementById('tag-filter-bar');
+      if (!bar) return;
+
+      const items = document.querySelectorAll('.item[data-tags]');
+      const tagSet = new Set();
+
+      items.forEach(item => {
+        const tags = (item.dataset.tags || '').split('|').filter(Boolean);
+        tags.forEach(t => tagSet.add(t));
+      });
+
+      if (tagSet.size === 0) {
+        bar.innerHTML = '';
+        return;
+      }
+
+      let html = '<span class="tag-filter-label">Filter by:</span>';
+      html += '<button class="tag-filter-button active" data-filter="ALL">All</button>';
+
+      tagSet.forEach(tag => {
+        html += '<button class="tag-filter-button" data-filter="' + tag + '">' + tag + '</button>';
+      });
+
+      bar.innerHTML = html;
+
+      Array.from(bar.querySelectorAll('.tag-filter-button')).forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          currentTagFilter = filter;
+
+          // update button active state
+          bar.querySelectorAll('.tag-filter-button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          applyTagFilter();
+        });
+      });
+
+      applyTagFilter();
+    }
+
+    function applyTagFilter() {
+      const items = document.querySelectorAll('.item');
+      items.forEach(item => {
+        const tags = (item.dataset.tags || '').split('|').filter(Boolean);
+        if (currentTagFilter === 'ALL' || tags.includes(currentTagFilter)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // --- Load recipients (names) and show buttons ---
+    function loadRecipients() {
+      fetch('/api/recipients?code=' + encodeURIComponent(USER_CODE))
+        .then(res => res.json())
+        .then(data => renderRecipients(data))
+        .catch(err => {
+          console.error(err);
+          setViewContent('<p class="error">Error loading recipients.</p>');
+        });
+    }
+
+    function renderRecipients(data) {
+      const container = document.getElementById('recipients');
+      container.innerHTML = '';
+
+      (data.recipients || []).forEach(person => {
+        const btn = document.createElement('button');
+        btn.textContent = person.name;
+        btn.addEventListener('click', () => {
+          showRecipientWishlist(person);
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    // --- View a recipient's wishlist ---
+    function showRecipientWishlist(person) {
+      setViewContent('<p>Loading wishlist for ' + person.name + '...</p>');
+
+      fetch(
+        '/api/wishlist?viewerCode=' + encodeURIComponent(USER_CODE) +
+        '&recipientCode=' + encodeURIComponent(person.code)
+      )
+        .then(res => res.json())
+        .then(data => renderRecipientWishlist(person, data))
+        .catch(err => {
+          console.error(err);
+          setViewContent('<p class="error">Error loading wishlist.</p>');
+        });
+    }
+
+    function renderRecipientWishlist(person, res) {
+      const isMyOwnList = (res.recipientCode === USER_CODE);
+
+      let html = '<h2>' + person.name + '\'s wishlist</h2>';
+
+      if (isMyOwnList) {
+        html += '<p>This is your own wishlist. You won\'t see claim info here.</p>';
+        if (WISHLIST_FORM_URL) {
+          html += '<p><a href="' + WISHLIST_FORM_URL + '" target="_blank">Add more to your Wishlist</a></p>';
+        }
+      } else {
+        html += '<p>Click "Claim" to mark something you plan to buy.</p>';
+      }
+
+      if (!res.items || res.items.length === 0) {
+        html += '<p>No items found.</p>';
+        setViewContent(html);
+        return;
+      }
+
+      // Filter bar
+      html += '<div id="tag-filter-bar" class="tag-filter-bar"></div>';
+
+      html += '<div class="item-list">';
+
+      res.items.forEach(item => {
+        const tagAttr = (item.tags && item.tags.length)
+          ? ' data-tags="' + item.tags.join('|').replace(/"/g, '&quot;') + '"'
+          : '';
+
+        html += '<div class="item"' + tagAttr + '>';
+
+        // HEADER ROW: title left, claim button/right-side stuff right
+        html += '<div class="item-header-row">';
+        html += '  <span class="item-title">' + (item.itemName || '(Unnamed item)') + '</span>';
+
+        if (!isMyOwnList) {
+          html += '  <div class="item-actions">';
+          if (item.claimed) {
+            if (item.claimedByMe) {
+              html += '<span class="status claimed">You claimed this.</span>';
+              html += '<button class="action-btn" onclick="handleUnclaim(this,' + item.row + ')">Unclaim</button>';
+            } else {
+              html += '<span class="status claimed">Claimed</span>';
+            }
+          } else {
+            html += '<button class="action-btn" onclick="handleClaim(this,' + item.row + ')">Claim</button>';
+          }
+          html += '  </div>';
+        }
+
+        html += '</div>'; // end item-header-row
+
+        // TAGS ROW
+        if (item.tags && item.tags.length) {
+          html += '<div class="tag-row">';
+          html += item.tags.map(tag => '<span class="tag-pill">' + tag + '</span>').join('');
+          html += '</div>';
+        }
+
+        // DESCRIPTION
+        if (item.details) {
+          html += '<div class="item-details">' + item.details + '</div>';
+        }
+
+        // LINK
+        if (item.url) {
+          html += '<div class="item-link"><a href="' + item.url + '" target="_blank">Link</a></div>';
+        }
+
+        html += '</div>'; // end .item
+      });
+
+      html += '</div>'; // end .item-list
+
+      setViewContent(html);
+      setupTagFilters();
+    }
+
+    // --- Claim / unclaim buttons (no full reload) ---
+    function handleClaim(buttonEl, itemId) {
+      fetch('/api/claim', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ viewerCode: USER_CODE, itemId: itemId })
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (!res.success) {
+            alert(res.message || 'Could not claim item.');
+            return;
+          }
+
+          
+
+          const itemEl = buttonEl.closest('.item');
+          if (!itemEl) return;
+
+          const actions = itemEl.querySelector('.item-actions') || buttonEl.parentElement;
+          if (!actions) return;
+
+          let statusSpan = actions.querySelector('.status');
+          if (!statusSpan) {
+            statusSpan = document.createElement('span');
+            statusSpan.className = 'status claimed';
+            actions.insertBefore(statusSpan, buttonEl);
+          }
+          statusSpan.textContent = 'You claimed this.';
+          statusSpan.classList.add('claimed');
+
+          buttonEl.textContent = 'Unclaim';
+          buttonEl.setAttribute('onclick', 'handleUnclaim(this,' + itemId + ')');
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Network error claiming item.');
+        });
+    }
+
+    function handleUnclaim(buttonEl, itemId) {
+      fetch('/api/unclaim', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ viewerCode: USER_CODE, itemId: itemId })
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (!res.success) {
+            alert(res.message || 'Could not unclaim item.');
+            return;
+          }
+
+          // --- Print helper: open printer-friendly popup and autoclose after printing ---
+          function printShoppingList() {
+            const printableEl = document.getElementById('printable-shopping-list') || document.querySelector('.shopping-list');
+            if (!printableEl) {
+              alert('No shopping list found to print.');
+              return;
+            }
+
+            const popup = window.open('', '_blank', 'width=900,height=700,menubar=no,toolbar=no,location=no');
+            if (!popup) {
+              alert('Popup blocked. Please allow popups for this site or use the browser Print command.');
+              return;
+            }
+
+            const styles = `
+              <style>
+                body{font-family: Arial, Helvetica, sans-serif; color:#222; margin:20px}
+                h1{font-size:1.2rem; margin-bottom:8px}
+                .item{border-bottom:1px solid #ddd; padding:8px 0}
+                .item-title{font-weight:700; font-size:1rem}
+                .item-for{font-size:0.95rem; color:#444; margin-top:4px}
+                .item-details{margin-top:6px; font-size:0.95rem; color:#222}
+                .tag-pill{display:inline-block;padding:2px 8px;border-radius:999px;background:#fff7df;border:1px solid #ffe7b3;font-size:0.8rem;margin-right:6px}
+              </style>`;
+
+            popup.document.open();
+            popup.document.write('<!doctype html><html><head><meta charset="utf-8"><title>My Shopping List</title>' + styles + '</head><body>');
+            popup.document.write('<h1>My Shopping List</h1>');
+            popup.document.write(printableEl.innerHTML);
+            popup.document.write('</body></html>');
+            popup.document.close();
+            popup.focus();
+
+            // Try to close after printing. Use onafterprint when available, and a timeout fallback.
+            try {
+              popup.onafterprint = function() { try { popup.close(); } catch(e){} };
+            } catch (e) {
+              // ignore
+            }
+
+            setTimeout(() => {
+              try {
+                popup.print();
+              } catch (e) {
+                console.error('Print failed:', e);
+                alert('Printing failed. You can use the browser print dialog instead.');
+              }
+
+              // Fallback: close popup shortly after print() call
+              setTimeout(() => {
+                try { popup.close(); } catch (e) {}
+              }, 1500);
+            }, 300);
+          }
+
+          const itemEl = buttonEl.closest('.item');
+          if (!itemEl) return;
+
+          const shoppingListEl = document.querySelector('.shopping-list');
+
+          // If we're in "My Shopping List" view, remove the item entirely
+          if (shoppingListEl && shoppingListEl.contains(itemEl)) {
+            itemEl.remove();
+
+            // If no more items, show empty message
+            if (!shoppingListEl.querySelector('.item')) {
+              const msg = document.createElement('p');
+              msg.textContent = 'You haven’t claimed anything yet.';
+              shoppingListEl.parentNode.insertBefore(msg, shoppingListEl);
+              shoppingListEl.remove();
+            }
+            return;
+          }
+
+          // Otherwise, we're on a recipient wishlist: revert back to unclaimed state
+          const actions = itemEl.querySelector('.item-actions') || buttonEl.parentElement;
+          if (!actions) return;
+
+          const statusSpan = actions.querySelector('.status');
+          if (statusSpan) {
+            statusSpan.remove();
+          }
+
+          buttonEl.textContent = 'Claim';
+          buttonEl.setAttribute('onclick', 'handleClaim(this,' + itemId + ')');
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Network error unclaiming item.');
+        });
+    }
+
+    // --- My wishlist (view only) ---
+    function showMyWishlist() {
+      // We refetch recipients to be safe
+      fetch('/api/recipients?code=' + encodeURIComponent(USER_CODE))
+        .then(res => res.json())
+        .then(data => {
+          const me = (data.recipients || []).find(p => p.code === USER_CODE);
+          if (!me) {
+            setViewContent('<p class="error">Could not find your wishlist.</p>');
+            return;
+          }
+          showRecipientWishlist(me);
+        })
+        .catch(err => {
+          console.error(err);
+          setViewContent('<p class="error">Error loading your wishlist.</p>');
+        });
+    }
+
+    // --- My shopping list (everything I’ve claimed) ---
+    function showMyShoppingList() {
+      setViewContent('<p>Loading your shopping list...</p>');
+
+      fetch('/api/my-shopping-list?viewerCode=' + encodeURIComponent(USER_CODE))
+        .then(res => res.json())
+        .then(res => renderMyShoppingList(res))
+        .catch(err => {
+          console.error(err);
+          setViewContent('<p class="error">Error loading your shopping list.</p>');
+        });
+    }
+
+    function renderMyShoppingList(res) {
+      let html = '<h2>My shopping list</h2>';
+
+      if (!res.items || res.items.length === 0) {
+        html += '<p>You haven’t claimed anything yet.</p>';
+        setViewContent(html);
+        return;
+      }
+
+      html += '<div id="tag-filter-bar" class="tag-filter-bar"></div>';
+
+        // Print button for shopping list
+        html += '<div style="margin:8px 0"><button class="action-btn" onclick="printShoppingList()">Print my Shopping List</button></div>';
+
+        html += '<div id="printable-shopping-list" class="shopping-list">';
+
+      res.items.forEach(item => {
+        const tagAttr = (item.tags && item.tags.length)
+          ? ' data-tags="' + item.tags.join('|').replace(/"/g, '&quot;') + '"'
+          : '';
+
+        html += '<div class="item"' + tagAttr + '>';
+
+        // HEADER ROW: title left, Unclaim button right
+        html += '<div class="item-header-row">';
+        html += '  <span class="item-title">' + (item.itemName || '(Unnamed item)') + '</span>';
+        html += '  <div class="item-actions">';
+        html += '    <button class="action-btn" onclick="handleUnclaim(this,' + item.row + ')">Unclaim</button>';
+        html += '  </div>';
+        html += '</div>'; // end item-header-row
+
+        // "For: X" line
+        html += '<div class="item-for">For: <b>' + (item.recipientName || item.recipientCode) + '</b></div>';
+
+        // TAGS ROW
+        if (item.tags && item.tags.length) {
+          html += '<div class="tag-row">';
+          html += item.tags.map(tag => '<span class="tag-pill">' + tag + '</span>').join('');
+          html += '</div>';
+        }
+
+        // DESCRIPTION
+        if (item.details) {
+          html += '<div class="item-details">' + item.details + '</div>';
+        }
+
+        // LINK
+        if (item.url) {
+          html += '<div class="item-link"><a href="' + item.url + '" target="_blank">Link</a></div>';
+        }
+
+        html += '</div>'; // end .item
+      });
+
+      html += '</div>'; // end .shopping-list
+
+      setViewContent(html);
+      setupTagFilters();
+    }
+  </script>
+</body>
+</html>
