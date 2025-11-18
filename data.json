@@ -2,32 +2,51 @@
   "people": [
     {
       "code": "LAUREN",
-      "name": "Lauren"
+      "name": "Lauren",
+      "family": "Rigsby"
     },
     {
       "code": "TAYLOR",
-      "name": "Taylor"
+      "name": "Taylor",
+      "family": "Rigsby"
     },
     {
       "code": "FRANKIE",
       "name": "Frankie",
-      "preferences": "Shirt: M-L, Shoes 11, Socks- M/L, Pants: 30/32\nNo- White Chocolate, yams/sweet potatoes"
+      "preferences": "Shirt: M-L, Shoes 11, Socks- M/L, Pants: 30/32\nNo- White Chocolate, yams/sweet potatoes",
+      "family": "Rigsby"
     },
     {
       "code": "VICKI",
-      "name": "Vicki"
+      "name": "Vicki",
+      "family": "Rigsby"
     },
     {
       "code": "JASON",
-      "name": "Jason"
+      "name": "Jason",
+      "family": "Rigsby"
     },
     {
       "code": "DENNIS",
-      "name": "Dennis"
+      "name": "Dennis",
+      "family": "Rigsby"
     },
     {
       "code": "MARILYN",
-      "name": "Marilyn"
+      "name": "Marilyn",
+      "family": "Rigsby"
+    },
+    {
+      "code": "TONI",
+      "name": "Toni",
+      "preferences": "",
+      "family": "Pieper"
+    },
+    {
+      "code": "TEST",
+      "name": "test",
+      "preferences": "",
+      "family": "Rigsby"
     }
   ],
   "items": [
@@ -46,7 +65,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -63,7 +83,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -80,7 +101,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -97,7 +119,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -114,7 +137,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -131,7 +155,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -148,7 +173,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -165,7 +191,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -180,7 +207,8 @@
       "details": "",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -195,7 +223,8 @@
       "details": "Portland Breakfast or British Brunch are my favorites",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -210,7 +239,8 @@
       "details": "it's a fidget toy thing",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -226,7 +256,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -241,7 +272,8 @@
       "details": "Size 9.5-10  I would just like some regular ankle socks that feel sturdy. I'm all set on fuzzy socks.",
       "tags": [
         "socks"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -254,7 +286,8 @@
       "tag": "",
       "id": 14,
       "details": "",
-      "tags": []
+      "tags": [],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -267,7 +300,8 @@
       "tag": "",
       "id": 15,
       "details": "",
-      "tags": []
+      "tags": [],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -280,7 +314,8 @@
       "tag": "",
       "id": 16,
       "details": "",
-      "tags": []
+      "tags": [],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -293,7 +328,8 @@
       "tag": "",
       "id": 17,
       "details": "",
-      "tags": []
+      "tags": [],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -308,7 +344,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -325,7 +362,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -342,7 +380,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -359,7 +398,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -374,7 +414,8 @@
       "details": "solid colors, Size: XL",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -390,7 +431,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -405,7 +447,8 @@
       "details": "11.5",
       "tags": [
         "socks"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -420,7 +463,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -435,7 +479,8 @@
       "details": "I can always use architecture books. Any book on this list, particularly Zumthor or Khan:",
       "tags": [
         "books"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -450,7 +495,8 @@
       "details": "",
       "tags": [
         "useful"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -465,7 +511,8 @@
       "details": "",
       "tags": [
         "useful"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -480,7 +527,8 @@
       "details": "",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -495,7 +543,8 @@
       "details": "no grid or lines",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -510,7 +559,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -525,7 +575,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -540,7 +591,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -555,7 +607,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -570,7 +623,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -585,7 +639,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -600,7 +655,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -615,7 +671,8 @@
       "details": "caramel filled especially",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -630,7 +687,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -645,7 +703,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -660,7 +719,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -675,7 +735,8 @@
       "details": "",
       "tags": [
         "books"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -690,7 +751,8 @@
       "details": "Spiced (like pumpkin) or scents that say __wood (Cedarwood, sandalwood, etc)",
       "tags": [
         "scents"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -705,7 +767,8 @@
       "details": "especially unusual or different rings, silver, no stones.",
       "tags": [
         "jewelry"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -720,7 +783,8 @@
       "details": "",
       "tags": [
         "activities"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -735,7 +799,8 @@
       "details": "I don't know if this exists",
       "tags": [
         "useful"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -750,7 +815,8 @@
       "details": "",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -765,7 +831,8 @@
       "details": "my office is mostly green",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -780,7 +847,8 @@
       "details": "plug in, not battery",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -795,7 +863,8 @@
       "details": "",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -810,7 +879,8 @@
       "details": "with no strings or small parts they can eat",
       "tags": [
         "other"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -825,7 +895,8 @@
       "details": "",
       "tags": [
         "other"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -840,7 +911,8 @@
       "details": "",
       "tags": [
         "other"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -855,7 +927,8 @@
       "details": "",
       "tags": [
         "other"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -870,7 +943,8 @@
       "details": "",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -885,7 +959,8 @@
       "details": "",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -900,7 +975,8 @@
       "details": "like these:",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -916,7 +992,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -932,7 +1009,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -948,7 +1026,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -963,7 +1042,8 @@
       "details": "Good running socks are always good, like ones with tab backs.",
       "tags": [
         "socks"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -978,7 +1058,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -993,7 +1074,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1008,7 +1090,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1023,7 +1106,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1038,7 +1122,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1053,7 +1138,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1068,7 +1154,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1083,7 +1170,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1098,7 +1186,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1113,7 +1202,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1128,7 +1218,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1143,7 +1234,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1158,7 +1250,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1173,7 +1266,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1188,7 +1282,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1203,7 +1298,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1218,7 +1314,8 @@
       "details": "I don't read much. I like interesting coffee table books.",
       "tags": [
         "books"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1233,7 +1330,8 @@
       "details": "Fresh, clean, flowery. Food flavors for candles only.",
       "tags": [
         "scents"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1248,7 +1346,8 @@
       "details": "",
       "tags": [
         "sports"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1263,7 +1362,8 @@
       "details": "Dangly earrings are good, but not too big.",
       "tags": [
         "jewelry"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1278,7 +1378,8 @@
       "details": "The one we did was really fun",
       "tags": [
         "activities"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1293,7 +1394,8 @@
       "details": "",
       "tags": [
         "activities"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1308,7 +1410,8 @@
       "details": "",
       "tags": [
         "activities"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1323,7 +1426,8 @@
       "details": "",
       "tags": [
         "activities"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1338,7 +1442,8 @@
       "details": "",
       "tags": [
         "board game"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1353,7 +1458,8 @@
       "details": "",
       "tags": [
         "board game"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1368,7 +1474,8 @@
       "details": "",
       "tags": [
         "useful"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1383,7 +1490,8 @@
       "details": "",
       "tags": [
         "other"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1398,7 +1506,8 @@
       "details": "",
       "tags": [
         "specific requests"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1413,7 +1522,8 @@
       "details": "Size: 11/ M-L",
       "tags": [
         "specific requests"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1430,7 +1540,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1447,7 +1558,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1464,7 +1576,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1481,7 +1594,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1498,7 +1612,8 @@
         "stocking stuffer",
         "small",
         "cheap"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1513,7 +1628,8 @@
       "details": "Size: 30/32",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1528,7 +1644,8 @@
       "details": "",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1543,7 +1660,8 @@
       "details": "",
       "tags": [
         "medium"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1559,7 +1677,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1575,7 +1694,8 @@
       "tags": [
         "big",
         "expensive"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1590,7 +1710,8 @@
       "details": "",
       "tags": [
         "hobbies"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1605,7 +1726,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1620,7 +1742,8 @@
       "details": "",
       "tags": [
         "decor"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1635,7 +1758,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1650,7 +1774,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1665,7 +1790,8 @@
       "details": "",
       "tags": [
         "food"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1680,7 +1806,8 @@
       "details": "",
       "tags": [
         "books"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1695,7 +1822,8 @@
       "details": "Campfire, and anything earthy",
       "tags": [
         "scents"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1710,7 +1838,8 @@
       "details": "",
       "tags": [
         "sports"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1725,7 +1854,8 @@
       "details": "",
       "tags": [
         "jewelry"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1740,7 +1870,8 @@
       "details": "",
       "tags": [
         "activities"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1755,7 +1886,8 @@
       "details": "",
       "tags": [
         "useful"
-      ]
+      ],
+      "family": "default"
     },
     {
       "itemId": "",
@@ -1770,7 +1902,8 @@
       "details": "",
       "tags": [
         "work related"
-      ]
+      ],
+      "family": "default"
     },
     {
       "id": 115,
@@ -1785,7 +1918,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "specific requests"
+      "tag": "specific requests",
+      "family": "default"
     },
     {
       "id": 116,
@@ -1802,7 +1936,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "stocking stuffer/small/cheap"
+      "tag": "stocking stuffer/small/cheap",
+      "family": "default"
     },
     {
       "id": 117,
@@ -1817,7 +1952,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "medium"
+      "tag": "medium",
+      "family": "default"
     },
     {
       "id": 118,
@@ -1832,7 +1968,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "hobbies"
+      "tag": "hobbies",
+      "family": "default"
     },
     {
       "id": 119,
@@ -1847,7 +1984,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "food"
+      "tag": "food",
+      "family": "default"
     },
     {
       "id": 120,
@@ -1862,7 +2000,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "food"
+      "tag": "food",
+      "family": "default"
     },
     {
       "id": 121,
@@ -1877,7 +2016,8 @@
       ],
       "claimedByCode": null,
       "notes": "scents that make me hungry: vanilla cinnamon creme brulee etc.",
-      "tag": "scents"
+      "tag": "scents",
+      "family": "default"
     },
     {
       "id": 122,
@@ -1892,7 +2032,8 @@
       ],
       "claimedByCode": null,
       "notes": "",
-      "tag": "useful"
+      "tag": "useful",
+      "family": "default"
     }
   ]
 }

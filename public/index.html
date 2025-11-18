@@ -287,6 +287,11 @@
       </ol>
     </div>
 
+    <div style="margin:6px 0">
+      <label for="family-select" style="font-size:0.9rem;margin-right:8px">Family:</label>
+      <select id="family-select" aria-label="Select family"></select>
+    </div>
+
     <div>
       <button id="my-wishlist-btn" class="action-btn">My Wishlist</button>
       <button id="my-shopping-list-btn" class="action-btn">My Shopping List</button>
@@ -314,7 +319,7 @@
 
     let currentTagFilter = 'ALL';
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       if (!USER_CODE) {
         document.getElementById('view-area').innerHTML =
           '<p class="error">Missing code. Please use your special link (like ?code=GRANDMA).</p>';
@@ -326,8 +331,40 @@
       document.getElementById('my-shopping-list-btn')
         .addEventListener('click', showMyShoppingList);
 
+      await loadFamiliesAndInit();
       loadRecipients();
     });
+
+    // --- Families support ---
+    async function loadFamiliesAndInit() {
+      try {
+        const r = await fetch('/api/families');
+        const json = await r.json();
+        const sel = document.getElementById('family-select');
+        sel.innerHTML = '';
+        const families = json.families || ['default'];
+        families.forEach(f => {
+          const opt = document.createElement('option'); opt.value = f; opt.textContent = f; sel.appendChild(opt);
+        });
+
+        // If URL has family param, select it
+        const urlParams = new URLSearchParams(window.location.search);
+        const fam = urlParams.get('family') || families[0] || 'default';
+        sel.value = fam;
+        sel.addEventListener('change', () => {
+          // preserve code param but update family in URL then reload recipients
+          const params = new URLSearchParams(window.location.search);
+          params.set('family', sel.value);
+          const newUrl = window.location.pathname + '?' + params.toString();
+          window.history.replaceState({}, '', newUrl);
+          loadRecipients();
+        });
+      } catch (err) {
+        console.error('Failed to load families', err);
+      }
+    }
+
+    
 
     // --- Helpers ---
     function setViewContent(html) {
@@ -391,7 +428,8 @@
 
     // --- Load recipients (names) and show buttons ---
     function loadRecipients() {
-      fetch('/api/recipients?code=' + encodeURIComponent(USER_CODE))
+      const fam = document.getElementById('family-select') ? document.getElementById('family-select').value : 'default';
+      fetch('/api/recipients?code=' + encodeURIComponent(USER_CODE) + '&family=' + encodeURIComponent(fam))
         .then(res => res.json())
         .then(data => renderRecipients(data))
         .catch(err => {
@@ -418,9 +456,11 @@
     function showRecipientWishlist(person) {
       setViewContent('<p>Loading wishlist for ' + person.name + '...</p>');
 
+      const fam = document.getElementById('family-select') ? document.getElementById('family-select').value : 'default';
       fetch(
         '/api/wishlist?viewerCode=' + encodeURIComponent(USER_CODE) +
-        '&recipientCode=' + encodeURIComponent(person.code)
+        '&recipientCode=' + encodeURIComponent(person.code) +
+        '&family=' + encodeURIComponent(fam)
       )
         .then(res => res.json())
         .then(data => renderRecipientWishlist(person, data))
@@ -519,10 +559,11 @@
 
     // --- Claim / unclaim buttons (no full reload) ---
     function handleClaim(buttonEl, itemId) {
+      const fam = document.getElementById('family-select') ? document.getElementById('family-select').value : 'default';
       fetch('/api/claim', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ viewerCode: USER_CODE, itemId: itemId })
+        body: JSON.stringify({ viewerCode: USER_CODE, itemId: itemId, family: fam })
       })
         .then(res => res.json())
         .then(res => {
@@ -558,10 +599,11 @@
     }
 
     function handleUnclaim(buttonEl, itemId) {
+      const fam = document.getElementById('family-select') ? document.getElementById('family-select').value : 'default';
       fetch('/api/unclaim', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ viewerCode: USER_CODE, itemId: itemId })
+        body: JSON.stringify({ viewerCode: USER_CODE, itemId: itemId, family: fam })
       })
         .then(res => res.json())
         .then(res => {
@@ -686,7 +728,8 @@
     // --- My wishlist (view only) ---
     function showMyWishlist() {
       // We refetch recipients to be safe
-      fetch('/api/recipients?code=' + encodeURIComponent(USER_CODE))
+      const fam = document.getElementById('family-select') ? document.getElementById('family-select').value : 'default';
+      fetch('/api/recipients?code=' + encodeURIComponent(USER_CODE) + '&family=' + encodeURIComponent(fam))
         .then(res => res.json())
         .then(data => {
           const me = (data.recipients || []).find(p => p.code === USER_CODE);
@@ -706,7 +749,8 @@
     function showMyShoppingList() {
       setViewContent('<p>Loading your shopping list...</p>');
 
-      fetch('/api/my-shopping-list?viewerCode=' + encodeURIComponent(USER_CODE))
+      const fam = document.getElementById('family-select') ? document.getElementById('family-select').value : 'default';
+      fetch('/api/my-shopping-list?viewerCode=' + encodeURIComponent(USER_CODE) + '&family=' + encodeURIComponent(fam))
         .then(res => res.json())
         .then(res => renderMyShoppingList(res))
         .catch(err => {

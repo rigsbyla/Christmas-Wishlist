@@ -46,9 +46,15 @@
   <div class="box">
     <h2>Admin: People & Preferences</h2>
     <p>View and edit people and their preferences.</p>
-    <div style="margin-bottom:8px">
-      <button id="refresh-people" type="button">Refresh people</button>
-      <button id="show-add-person" type="button" style="margin-left:8px;background:#28a745">Add Person</button>
+    <div style="margin-bottom:8px; display:flex; gap:8px; align-items:center">
+      <div>
+        <label for="admin-family-select">Family:</label>
+        <select id="admin-family-select"></select>
+      </div>
+      <div style="margin-left:auto">
+        <button id="refresh-people" type="button">Refresh people</button>
+        <button id="show-add-person" type="button" style="margin-left:8px;background:#28a745">Add Person</button>
+      </div>
     </div>
     <div id="people-list">Loading...</div>
 
@@ -57,6 +63,7 @@
       <form id="add-person-form">
         <div><label>Code: <input id="add-person-code" required style="text-transform:uppercase"/></label></div>
         <div><label>Name: <input id="add-person-name"/></label></div>
+        <div><label>Family: <input id="add-person-family" placeholder="default"/></label></div>
         <div><label>Preferences:<br>
           <textarea id="add-person-preferences" rows="3" style="width:100%"></textarea></label>
         </div>
@@ -71,8 +78,10 @@
       <h3>Edit Person</h3>
       <form id="person-edit-form">
         <input type="hidden" id="person-code" />
+        <input type="hidden" id="person-original-family" />
         <div><label>Code: <input id="person-code-display" disabled/></label></div>
         <div><label>Name: <input id="person-name"/></label></div>
+        <div><label>Family: <input id="person-family"/></label></div>
         <div><label>Preferences (free text):<br>
           <textarea id="person-preferences" rows="4" style="width:100%"></textarea></label>
         </div>
@@ -116,7 +125,7 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       // Parse response as JSON but fall back to raw text when response is HTML/error page
       async function parseJsonSafe(response) {
         const txt = await response.text();
@@ -174,7 +183,8 @@
       async function loadAdminItems() {
         adminListEl.textContent = 'Loading...';
         try {
-          const r = await fetch('/api/admin/items');
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+          const r = await fetch('/api/admin/items?family=' + encodeURIComponent(family));
           if (!r.ok) {
             adminListEl.textContent = 'Error: ' + r.status + ' ' + r.statusText;
             return;
@@ -233,7 +243,8 @@
 
       async function openEdit(id) {
         try {
-          const r = await fetch('/api/admin/items');
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+          const r = await fetch('/api/admin/items?family=' + encodeURIComponent(family));
           const json = await parseJsonSafe(r);
           if (json && json.__nonJson) return alert('Server error: ' + json.raw);
           const items = json.items || [];
@@ -297,8 +308,7 @@
 
       refreshBtn.addEventListener('click', loadAdminItems);
 
-      // Load items on page open
-      loadAdminItems();
+      // initial load of items will happen after families are initialized
 
       // --- People / preferences admin ---
       const peopleListEl = document.getElementById('people-list');
@@ -309,11 +319,25 @@
       const cancelAddPersonBtn = document.getElementById('cancel-add-person');
       const personEditArea = document.getElementById('person-edit-area');
       const personEditForm = document.getElementById('person-edit-form');
+      const adminFamilySelect = document.getElementById('admin-family-select');
+
+      async function loadAdminFamilies() {
+        try {
+          const r = await fetch('/api/families');
+          const json = await r.json();
+          const fams = json.families || ['default'];
+          adminFamilySelect.innerHTML = '';
+          fams.forEach(f => { const o = document.createElement('option'); o.value = f; o.textContent = f; adminFamilySelect.appendChild(o); });
+        } catch (err) {
+          console.error('Failed to load families', err);
+        }
+      }
 
       async function loadPeople() {
         peopleListEl.textContent = 'Loading...';
         try {
-          const r = await fetch('/api/recipients?code=');
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+          const r = await fetch('/api/recipients?code=&family=' + encodeURIComponent(family));
           if (!r.ok) { peopleListEl.textContent = 'Error: ' + r.status; return; }
           const json = await parseJsonSafe(r);
           if (json && json.__nonJson) { peopleListEl.textContent = 'Server error: ' + json.raw; return; }
@@ -352,7 +376,8 @@
                 const code = e.target.getAttribute('data-code');
                 if (!confirm('Delete person "' + code + '" and all their items? This cannot be undone.')) return;
                 try {
-                  const r = await fetch('/api/admin/person/' + encodeURIComponent(code), { method: 'DELETE' });
+                  const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+                  const r = await fetch('/api/admin/person/' + encodeURIComponent(code) + '?family=' + encodeURIComponent(family), { method: 'DELETE' });
                   const json = await parseJsonSafe(r);
                   if (json && json.__nonJson) return alert('Server error: ' + json.raw);
                   if (!json.success) return alert('Delete failed: ' + (json.message || ''));
@@ -368,7 +393,8 @@
 
       async function openPersonEdit(code) {
         try {
-          const r = await fetch('/api/recipients?code=');
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+          const r = await fetch('/api/recipients?code=&family=' + encodeURIComponent(family));
           const json = await parseJsonSafe(r);
           if (json && json.__nonJson) return alert('Server error: ' + json.raw);
           const list = json.recipients || [];
@@ -379,6 +405,9 @@
           document.getElementById('person-code-display').value = p.code || '';
           document.getElementById('person-name').value = p.name || '';
           document.getElementById('person-preferences').value = p.preferences || '';
+          document.getElementById('person-family').value = p.family || family;
+          // store original family for lookup when saving
+          document.getElementById('person-original-family').value = p.family || family;
 
           personEditArea.style.display = 'block';
           personEditArea.scrollIntoView({ behavior: 'smooth' });
@@ -396,7 +425,10 @@
         };
 
         try {
-          const r = await fetch('/api/admin/person/' + encodeURIComponent(code), {
+          const originalFamily = (document.getElementById('person-original-family') && document.getElementById('person-original-family').value) ? document.getElementById('person-original-family').value : ((adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default');
+          const newFamily = (document.getElementById('person-family') && document.getElementById('person-family').value.trim()) ? document.getElementById('person-family').value.trim() : ((adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default');
+          payload.family = newFamily;
+          const r = await fetch('/api/admin/person/' + encodeURIComponent(code) + '?family=' + encodeURIComponent(originalFamily), {
             method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
           });
           const json = await parseJsonSafe(r);
@@ -416,7 +448,13 @@
       // Show add person area
       showAddPersonBtn.addEventListener('click', () => {
         addPersonArea.style.display = addPersonArea.style.display === 'none' ? 'block' : 'none';
-        if (addPersonArea.style.display === 'block') document.getElementById('add-person-code').focus();
+        if (addPersonArea.style.display === 'block') {
+          // prefill family input with the admin selector value if available
+          const fam = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+          const apf = document.getElementById('add-person-family');
+          if (apf) apf.value = fam;
+          document.getElementById('add-person-code').focus();
+        }
       });
 
       cancelAddPersonBtn.addEventListener('click', () => { addPersonArea.style.display = 'none'; });
@@ -428,9 +466,10 @@
         const prefs = document.getElementById('add-person-preferences').value;
         if (!code) return alert('Code is required');
         try {
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
           const r = await fetch('/api/admin/person', {
             method: 'POST', headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({ code: code.toUpperCase(), name, preferences: prefs })
+            body: JSON.stringify({ code: code.toUpperCase(), name, preferences: prefs, family })
           });
           const json = await parseJsonSafe(r);
           if (json && json.__nonJson) return alert('Server error: ' + json.raw);
@@ -443,8 +482,13 @@
           alert('Error adding person: ' + err.message);
         }
       });
-      // initial load
+      // initial load: families then people and items
+      await loadAdminFamilies();
+      if (adminFamilySelect) {
+        adminFamilySelect.addEventListener('change', () => { loadPeople(); loadAdminItems(); });
+      }
       loadPeople();
+      loadAdminItems();
     });
   </script>
 </body>

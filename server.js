@@ -64,7 +64,14 @@ function loadData() {
 
       // Ensure claimedByCode exists (null or string)
       if (!('claimedByCode' in it)) it.claimedByCode = null;
+      // Ensure family field exists for multi-family support
+      if (!('family' in it) || !it.family) it.family = 'default';
     });
+  }
+
+  // Ensure people have a family attribute (default)
+  if (Array.isArray(data.people)) {
+    data.people.forEach(p => { if (!('family' in p) || !p.family) p.family = 'default'; });
   }
 
   return data;
@@ -195,6 +202,7 @@ app.post('/api/admin/upload-csv-text', (req, res) => {
     out.itemName = r.itemname || r.name || '';
     out.details = r.details || r.notes || '';
     out.url = r.url || '';
+    out.family = r.family || body.family || 'default';
     const rawTags = r.tags || r.tag || '';
     if (typeof rawTags === 'string' && rawTags.trim() !== '') {
       out.tags = rawTags.split(/[\/|,;]+/).map(s => s.trim()).filter(Boolean);
@@ -222,8 +230,10 @@ app.post('/api/admin/upload-csv-text', (req, res) => {
 // --- Admin: list items (for admin UI) ---
 app.get('/api/admin/items', (req, res) => {
   const data = loadData();
-  // Return items as-is (they are normalized in loadData)
-  res.json({ items: data.items || [] });
+  // Optionally filter by family (query param `family`)
+  const family = req.query.family || 'default';
+  const items = (data.items || []).filter(it => String(it.family || 'default') === String(family));
+  res.json({ items });
 });
 
 // --- Admin: update an item by id ---
@@ -234,7 +244,8 @@ app.put('/api/admin/item/:id', (req, res) => {
   const data = loadData();
   if (!Array.isArray(data.items)) data.items = [];
 
-  const item = data.items.find(i => Number(i.id) === id || Number(i.itemId) === id);
+  const family = req.query.family || req.body.family || 'default';
+  const item = data.items.find(i => (Number(i.id) === id || Number(i.itemId) === id) && String(i.family || 'default') === String(family));
   if (!item) return res.status(404).json({ success: false, message: 'Item not found' });
 
   const body = req.body || {};
@@ -255,6 +266,8 @@ app.put('/api/admin/item/:id', (req, res) => {
   // keep legacy fields in sync
   item.notes = item.details;
   item.tag = (item.tags && item.tags.join('/')) || '';
+  // ensure family stays set
+  if (!item.family) item.family = family;
 
   try {
     saveData(data);
@@ -266,20 +279,46 @@ app.put('/api/admin/item/:id', (req, res) => {
   res.json({ success: true, item });
 });
 
-// --- Admin: update a person (preferences, name) ---
+// --- Admin: update a person (preferences, name, family) ---
 app.put('/api/admin/person/:code', (req, res) => {
   const code = req.params.code;
-  if (!code) return res.status(400).json({ success: false, message: 'Missing person code' });
+  if (!code) {
+    return res.status(400).json({ success: false, message: 'Missing person code' });
+  }
 
   const data = loadData();
   if (!Array.isArray(data.people)) data.people = [];
 
-  const person = data.people.find(p => String(p.code) === String(code));
-  if (!person) return res.status(404).json({ success: false, message: 'Person not found' });
+  // This is the *original* family used to find the person
+  const lookupFamily = req.query.family || req.body.family || 'default';
+
+  const person = data.people.find(
+    p => String(p.code) === String(code) && String(p.family || 'default') === String(lookupFamily)
+  );
+
+  if (!person) {
+    return res.status(404).json({ success: false, message: 'Person not found' });
+  }
 
   const body = req.body || {};
-  if ('name' in body) person.name = String(body.name || '');
-  if ('preferences' in body) person.preferences = body.preferences || '';
+
+  // Update fields
+  if ('name' in body) {
+    person.name = String(body.name || '');
+  }
+
+  if ('preferences' in body) {
+    person.preferences = body.preferences || '';
+  }
+
+  if ('family' in body) {
+    // This is the *new* family you typed in the admin UI
+    const newFamily = (body.family || '').trim() || 'default';
+    person.family = newFamily;
+  } else if (!person.family) {
+    // Ensure it never ends up blank
+    person.family = lookupFamily || 'default';
+  }
 
   try {
     saveData(data);
@@ -291,12 +330,14 @@ app.put('/api/admin/person/:code', (req, res) => {
   res.json({ success: true, person });
 });
 
+
 // --- Admin: create a person ---
 app.post('/api/admin/person', (req, res) => {
   const body = req.body || {};
   const code = (body.code || '').toString().trim();
   const name = (body.name || '').toString().trim();
   const preferences = body.preferences || '';
+  const family = body.family || req.query.family || 'default';
 
   if (!code) return res.status(400).json({ success: false, message: 'Missing code' });
 
@@ -308,7 +349,7 @@ app.post('/api/admin/person', (req, res) => {
     return res.status(409).json({ success: false, message: 'Person with this code already exists' });
   }
 
-  const person = { code, name, preferences };
+  const person = { code, name, preferences, family };
   data.people.push(person);
 
   try { saveData(data); } catch (err) {
@@ -326,8 +367,8 @@ app.delete('/api/admin/person/:code', (req, res) => {
 
   const data = loadData();
   if (!Array.isArray(data.people)) data.people = [];
-
-  const idx = data.people.findIndex(p => String(p.code) === String(code));
+  const family = req.query.family || 'default';
+  const idx = data.people.findIndex(p => String(p.code) === String(code) && String(p.family || 'default') === String(family));
   if (idx === -1) return res.status(404).json({ success: false, message: 'Person not found' });
 
   // Remove person
@@ -335,7 +376,7 @@ app.delete('/api/admin/person/:code', (req, res) => {
 
   // Also remove items associated with this person to keep data consistent
   if (Array.isArray(data.items)) {
-    data.items = data.items.filter(it => String(it.recipientCode) !== String(code));
+    data.items = data.items.filter(it => !(String(it.recipientCode) === String(code) && String(it.family || 'default') === String(family)));
   }
 
   try { saveData(data); } catch (err) {
@@ -350,23 +391,32 @@ app.delete('/api/admin/person/:code', (req, res) => {
 // GET /api/recipients?code=LAUREN
 app.get('/api/recipients', (req, res) => {
   const { code } = req.query;
+  const family = req.query.family || 'default';
   const data = loadData();
 
-  const currentUser = data.people.find(p => p.code === code) || null;
+  const recipients = (data.people || []).filter(p => String(p.family || 'default') === String(family));
+  const currentUser = recipients.find(p => p.code === code) || null;
 
-  res.json({
-    currentUser,
-    recipients: data.people
-  });
+  res.json({ currentUser, recipients });
+});
+
+// GET /api/families - list available family keys (from people and items)
+app.get('/api/families', (req, res) => {
+  const data = loadData();
+  const famSet = new Set();
+  (data.people || []).forEach(p => famSet.add(p.family || 'default'));
+  (data.items || []).forEach(i => famSet.add(i.family || 'default'));
+  res.json({ families: Array.from(famSet) });
 });
 
 // GET /api/wishlist?viewerCode=X&recipientCode=Y
 app.get('/api/wishlist', (req, res) => {
   const { viewerCode, recipientCode } = req.query;
+  const family = req.query.family || 'default';
   const data = loadData();
 
   const items = data.items
-    .filter(i => i.recipientCode === recipientCode)
+    .filter(i => i.recipientCode === recipientCode && String(i.family || 'default') === String(family))
     .map(i => ({
       row: (i.id || Number(i.itemId) || null), // keep the "row" name to match front-end
       recipientCode: i.recipientCode,
@@ -389,10 +439,11 @@ app.get('/api/wishlist', (req, res) => {
 // GET /api/my-shopping-list?viewerCode=X
 app.get('/api/my-shopping-list', (req, res) => {
   const { viewerCode } = req.query;
+  const family = req.query.family || 'default';
   const data = loadData();
 
   const items = data.items
-    .filter(i => i.claimedByCode === viewerCode)
+    .filter(i => i.claimedByCode === viewerCode && String(i.family || 'default') === String(family))
     .map(i => ({
       row: (i.id || Number(i.itemId) || null),
       recipientCode: i.recipientCode,
@@ -412,10 +463,11 @@ app.get('/api/my-shopping-list', (req, res) => {
 // POST /api/claim { viewerCode, itemId }
 app.post('/api/claim', (req, res) => {
   const { viewerCode, itemId } = req.body;
+  const family = req.body.family || req.query.family || 'default';
   const data = loadData();
 
   const idNum = Number(itemId);
-  const item = data.items.find(i => i.id === idNum);
+  const item = data.items.find(i => i.id === idNum && String(i.family || 'default') === String(family));
 
   if (!item) {
     return res.json({ success: false, message: 'Item not found.' });
@@ -435,10 +487,11 @@ app.post('/api/claim', (req, res) => {
 // POST /api/unclaim { viewerCode, itemId }
 app.post('/api/unclaim', (req, res) => {
   const { viewerCode, itemId } = req.body;
+  const family = req.body.family || req.query.family || 'default';
   const data = loadData();
 
   const idNum = Number(itemId);
-  const item = data.items.find(i => i.id === idNum);
+  const item = data.items.find(i => i.id === idNum && String(i.family || 'default') === String(family));
 
   if (!item) {
     return res.json({ success: false, message: 'Item not found.' });
