@@ -42,34 +42,6 @@
     <pre id="response">No upload yet.</pre>
   </div>
 
-  <div class="box">
-    <h2>Admin: Items</h2>
-    <p>View and edit items currently stored in <code>data.json</code>.</p>
-    <div id="admin-controls" style="margin-bottom:8px">
-      <button id="refresh-items" type="button">Refresh list</button>
-    </div>
-
-    <div id="admin-list">Loading...</div>
-
-    <div id="edit-area" style="display:none; margin-top:12px">
-      <h3>Edit Item</h3>
-      <form id="edit-form">
-        <input type="hidden" id="edit-id" />
-        <div><label>Recipient code: <input id="edit-recipientCode"/></label></div>
-        <div><label>Recipient name: <input id="edit-recipientName"/></label></div>
-        <div><label>Item name: <input id="edit-itemName" style="width:100%"/></label></div>
-        <div><label>Notes / details:<br>
-          <textarea id="edit-details" rows="3" style="width:100%"></textarea></label>
-        </div>
-        <div><label>URL: <input id="edit-url" style="width:100%"/></label></div>
-        <div><label>Tags (comma separated): <input id="edit-tags" style="width:100%"/></label></div>
-        <div style="margin-top:8px">
-          <button id="save-edit" type="submit">Save</button>
-          <button id="cancel-edit" type="button" style="background:#aaa">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <div class="box">
     <h2>Admin: People & Preferences</h2>
@@ -107,6 +79,37 @@
         <div style="margin-top:8px">
           <button id="save-person" type="submit">Save</button>
           <button id="cancel-person" type="button" style="background:#aaa">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    
+  </div>
+  
+  <div class="box">
+    <h2>Admin: Items</h2>
+    <p>View and edit items currently stored in <code>data.json</code>.</p>
+    <div id="admin-controls" style="margin-bottom:8px">
+      <button id="refresh-items" type="button">Refresh list</button>
+    </div>
+
+    <div id="admin-list">Loading...</div>
+
+    <div id="edit-area" style="display:none; margin-top:12px">
+      <h3>Edit Item</h3>
+      <form id="edit-form">
+        <input type="hidden" id="edit-id" />
+        <div><label>Recipient code: <input id="edit-recipientCode"/></label></div>
+        <div><label>Recipient name: <input id="edit-recipientName"/></label></div>
+        <div><label>Item name: <input id="edit-itemName" style="width:100%"/></label></div>
+        <div><label>Notes / details:<br>
+          <textarea id="edit-details" rows="3" style="width:100%"></textarea></label>
+        </div>
+        <div><label>URL: <input id="edit-url" style="width:100%"/></label></div>
+        <div><label>Tags (comma separated): <input id="edit-tags" style="width:100%"/></label></div>
+        <div style="margin-top:8px">
+          <button id="save-edit" type="submit">Save</button>
+          <button id="cancel-edit" type="button" style="background:#aaa">Cancel</button>
         </div>
       </form>
     </div>
