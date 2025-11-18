@@ -41,12 +41,6 @@
       "name": "Toni",
       "preferences": "",
       "family": "Pieper"
-    },
-    {
-      "code": "TEST",
-      "name": "test",
-      "preferences": "",
-      "family": "Rigsby"
     }
   ],
   "items": [
@@ -66,7 +60,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -84,7 +78,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -102,7 +96,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -120,7 +114,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -138,7 +132,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -156,7 +150,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -174,7 +168,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -192,7 +186,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -208,7 +202,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -224,7 +218,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -240,7 +234,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -257,7 +251,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -273,7 +267,7 @@
       "tags": [
         "socks"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -287,7 +281,7 @@
       "id": 14,
       "details": "",
       "tags": [],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -301,7 +295,7 @@
       "id": 15,
       "details": "",
       "tags": [],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -315,7 +309,7 @@
       "id": 16,
       "details": "",
       "tags": [],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -329,7 +323,7 @@
       "id": 17,
       "details": "",
       "tags": [],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -345,7 +339,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -363,7 +357,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -381,7 +375,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -399,7 +393,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -415,7 +409,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -432,7 +426,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -448,7 +442,7 @@
       "tags": [
         "socks"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -464,7 +458,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -480,7 +474,7 @@
       "tags": [
         "books"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -496,7 +490,7 @@
       "tags": [
         "useful"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -512,7 +506,7 @@
       "tags": [
         "useful"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -528,7 +522,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -544,7 +538,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -560,7 +554,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -576,7 +570,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -592,7 +586,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -608,7 +602,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -624,7 +618,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -640,7 +634,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -656,7 +650,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -672,7 +666,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -688,7 +682,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -704,7 +698,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -720,7 +714,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -736,7 +730,7 @@
       "tags": [
         "books"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -752,7 +746,7 @@
       "tags": [
         "scents"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -768,7 +762,7 @@
       "tags": [
         "jewelry"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -784,7 +778,7 @@
       "tags": [
         "activities"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -800,7 +794,7 @@
       "tags": [
         "useful"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -816,7 +810,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -832,7 +826,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -848,7 +842,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -864,7 +858,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -880,7 +874,7 @@
       "tags": [
         "other"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -896,7 +890,7 @@
       "tags": [
         "other"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -912,7 +906,7 @@
       "tags": [
         "other"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -928,7 +922,7 @@
       "tags": [
         "other"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -944,7 +938,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -960,7 +954,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -976,7 +970,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -993,7 +987,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1010,7 +1004,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1027,7 +1021,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1043,7 +1037,7 @@
       "tags": [
         "socks"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1059,7 +1053,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1075,7 +1069,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1091,7 +1085,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1107,7 +1101,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1123,7 +1117,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1139,7 +1133,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1155,7 +1149,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1171,7 +1165,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1187,7 +1181,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1203,7 +1197,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1219,7 +1213,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1235,7 +1229,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1251,7 +1245,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1267,7 +1261,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1283,7 +1277,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1299,7 +1293,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1315,7 +1309,7 @@
       "tags": [
         "books"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1331,7 +1325,7 @@
       "tags": [
         "scents"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1347,7 +1341,7 @@
       "tags": [
         "sports"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1363,7 +1357,7 @@
       "tags": [
         "jewelry"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1379,7 +1373,7 @@
       "tags": [
         "activities"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1395,7 +1389,7 @@
       "tags": [
         "activities"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1411,7 +1405,7 @@
       "tags": [
         "activities"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1427,7 +1421,7 @@
       "tags": [
         "activities"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1443,7 +1437,7 @@
       "tags": [
         "board game"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1459,7 +1453,7 @@
       "tags": [
         "board game"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1475,7 +1469,7 @@
       "tags": [
         "useful"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1491,7 +1485,7 @@
       "tags": [
         "other"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1507,7 +1501,7 @@
       "tags": [
         "specific requests"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1523,7 +1517,7 @@
       "tags": [
         "specific requests"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1541,7 +1535,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1559,7 +1553,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1577,7 +1571,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1595,7 +1589,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1613,7 +1607,7 @@
         "small",
         "cheap"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1629,7 +1623,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1645,7 +1639,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1661,7 +1655,7 @@
       "tags": [
         "medium"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1678,7 +1672,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1695,7 +1689,7 @@
         "big",
         "expensive"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1711,7 +1705,7 @@
       "tags": [
         "hobbies"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1727,7 +1721,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1743,7 +1737,7 @@
       "tags": [
         "decor"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1759,7 +1753,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1775,7 +1769,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1791,7 +1785,7 @@
       "tags": [
         "food"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1807,7 +1801,7 @@
       "tags": [
         "books"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1823,7 +1817,7 @@
       "tags": [
         "scents"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1839,7 +1833,7 @@
       "tags": [
         "sports"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1855,7 +1849,7 @@
       "tags": [
         "jewelry"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1871,7 +1865,7 @@
       "tags": [
         "activities"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1887,7 +1881,7 @@
       "tags": [
         "useful"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "itemId": "",
@@ -1903,7 +1897,7 @@
       "tags": [
         "work related"
       ],
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 115,
@@ -1919,7 +1913,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "specific requests",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 116,
@@ -1937,7 +1931,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "stocking stuffer/small/cheap",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 117,
@@ -1953,7 +1947,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "medium",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 118,
@@ -1969,7 +1963,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "hobbies",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 119,
@@ -1985,7 +1979,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "food",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 120,
@@ -2001,7 +1995,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "food",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 121,
@@ -2017,7 +2011,7 @@
       "claimedByCode": null,
       "notes": "scents that make me hungry: vanilla cinnamon creme brulee etc.",
       "tag": "scents",
-      "family": "default"
+      "family": "Rigsby"
     },
     {
       "id": 122,
@@ -2033,7 +2027,7 @@
       "claimedByCode": null,
       "notes": "",
       "tag": "useful",
-      "family": "default"
+      "family": "Rigsby"
     }
   ]
 }

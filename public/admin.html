@@ -21,25 +21,8 @@
 </head>
 <body>
   <div class="box">
-    <h1>Admin: Upload CSV</h1>
-    <p>
-      Upload a CSV file to add/update items in <code>data.json</code>.<br>
-      Expected column names (case-insensitive): 
-      <code>itemId</code>, <code>recipientCode</code>, <code>recipientName</code>, 
-      <code>itemName</code>, <code>notes</code>, <code>url</code>, 
-      <code>tag</code> or <code>tags</code>.
-    </p>
-
-    <form id="upload-form">
-      <label for="csvfile">CSV file</label>
-      <input id="csvfile" name="csvfile" type="file" accept=".csv,text/csv" required />
-      <div style="margin-top:10px">
-        <button type="submit">Upload</button>
-      </div>
-    </form>
-
     <h3>Response</h3>
-    <pre id="response">No upload yet.</pre>
+    <pre id="response">No activity yet.</pre>
   </div>
 
 
@@ -96,6 +79,36 @@
   </div>
   
   <div class="box">
+    <h2>Add Wishlist Items</h2>
+    <p>Add items via CSV (below) or add a single item one at a time.</p>
+
+    <form id="upload-form">
+      <label for="csvfile">CSV file</label>
+      <input id="csvfile" name="csvfile" type="file" accept=".csv,text/csv" required />
+      <div style="margin-top:10px">
+        <button type="submit">Upload CSV</button>
+      </div>
+    </form>
+
+    <hr />
+    <h3>Add Single Item</h3>
+    <form id="add-item-form">
+      <div><label>Recipient: <select id="add-item-recipient" required></select></label></div>
+      <div><label>Item name: <input id="add-item-itemName" style="width:100%" required/></label></div>
+      <div><label>Notes / details:<br>
+        <textarea id="add-item-details" rows="3" style="width:100%"></textarea></label>
+      </div>
+      <div><label>URL: <input id="add-item-url" style="width:100%"/></label></div>
+      <div><label>Tags (comma separated): <input id="add-item-tags" style="width:100%"/></label></div>
+      <div style="margin-top:8px">
+        <button type="submit">Add Item</button>
+        <button id="cancel-add-item" type="button" style="background:#aaa">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="box">
     <h2>Admin: Items</h2>
     <p>View and edit items currently stored in <code>data.json</code>.</p>
     <div id="admin-controls" style="margin-bottom:8px">
@@ -142,6 +155,7 @@
       const refreshBtn  = document.getElementById('refresh-items');
       const editArea    = document.getElementById('edit-area');
       const editForm    = document.getElementById('edit-form');
+      const addItemForm = document.getElementById('add-item-form');
 
       // --- CSV upload handler ---
       form.addEventListener('submit', async (e) => {
@@ -158,10 +172,11 @@
         resp.textContent = 'Uploading...';
 
         try {
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
           const r = await fetch('/api/admin/upload-csv-text', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ csv: txt })
+            body: JSON.stringify({ csv: txt, family })
           });
 
           const json = await parseJsonSafe(r);
@@ -177,6 +192,43 @@
           resp.textContent = 'Network error: ' + err.message;
         }
       });
+
+      // --- Add single item handler (construct a one-row CSV and POST to same upload endpoint) ---
+      if (addItemForm) {
+        addItemForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const recipientSelect = document.getElementById('add-item-recipient');
+          const recipientCode = (recipientSelect && recipientSelect.value) ? String(recipientSelect.value).toUpperCase() : '';
+          const recipientName = (recipientSelect && recipientSelect.selectedOptions && recipientSelect.selectedOptions[0]) ? (recipientSelect.selectedOptions[0].dataset.name || '') : '';
+          const itemName = document.getElementById('add-item-itemName').value||'';
+          const details = document.getElementById('add-item-details').value||'';
+          const url = document.getElementById('add-item-url').value||'';
+          const tags = document.getElementById('add-item-tags').value||'';
+          if (!recipientCode || !itemName) return alert('Recipient code and Item name are required');
+
+          // Build CSV with header row matching server expectations
+          const header = ['itemId','recipientCode','recipientName','itemName','details','url','tag'];
+          function esc(v){ if (v === null || v === undefined) return ''; return '"' + String(v).replace(/"/g,'""') + '"'; }
+          const row = [ '', recipientCode, recipientName, itemName, details, url, tags ].map(esc).join(',');
+          const csv = header.join(',') + '\n' + row + '\n';
+
+          try {
+            const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+            const r = await fetch('/api/admin/upload-csv-text', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ csv: csv, family })
+            });
+            const json = await parseJsonSafe(r);
+            if (json && json.__nonJson) return alert('Server error: ' + json.raw);
+            resp.textContent = JSON.stringify(json, null, 2);
+            addItemForm.reset();
+            loadAdminItems();
+          } catch (err) {
+            alert('Error adding item: ' + err.message);
+          }
+        });
+
+        document.getElementById('cancel-add-item').addEventListener('click', () => { addItemForm.reset(); });
+      }
 
       // --- Admin items listing / edit ---
 
@@ -333,6 +385,34 @@
         }
       }
 
+      // Populate the recipient dropdown used by the add-item form
+      async function populateRecipientOptions() {
+        try {
+          const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+          const r = await fetch('/api/recipients?code=&family=' + encodeURIComponent(family));
+          if (!r.ok) return;
+          const json = await parseJsonSafe(r);
+          if (json && json.__nonJson) return;
+          const list = (json.recipients || []);
+          const sel = document.getElementById('add-item-recipient');
+          const nameInput = document.getElementById('add-item-recipientName');
+          if (!sel) return;
+          sel.innerHTML = '';
+          list.forEach(p => {
+            const o = document.createElement('option');
+            o.value = p.code || '';
+            // show only the person's name in the dropdown to avoid exposing codes
+            o.textContent = p.name || p.code || '';
+            if (p.name) o.dataset.name = p.name;
+            sel.appendChild(o);
+          });
+          // set first option if present
+          if (sel.options.length > 0) sel.selectedIndex = 0;
+        } catch (err) {
+          console.error('Failed to populate recipients', err);
+        }
+      }
+
       async function loadPeople() {
         peopleListEl.textContent = 'Loading...';
         try {
@@ -353,14 +433,15 @@
         html += '<thead><tr><th>Code</th><th>Name</th><th>Preferences</th><th></th></tr></thead><tbody>';
         list.forEach(p => {
           html += '<tr>' +
-            '<td>' + (p.code || '') + '</td>' +
-            '<td>' + (p.name || '') + '</td>' +
-            '<td>' + ((p.preferences && String(p.preferences).substring(0,80)) || '') + '</td>' +
-            '<td>' +
-              '<button data-code="' + (p.code || '') + '" class="edit-person-btn" type="button">Edit</button>' +
-              ' <button data-code="' + (p.code || '') + '" class="delete-person-btn" type="button" style="background:#d9534f;margin-left:6px">Delete</button>' +
-            '</td>' +
-            '</tr>';
+              '<td>' + (p.code || '') + '</td>' +
+              '<td>' + (p.name || '') + '</td>' +
+              '<td>' + ((p.preferences && String(p.preferences).substring(0,80)) || '') + '</td>' +
+              '<td>' +
+                '<button data-code="' + (p.code || '') + '" class="edit-person-btn" type="button">Edit</button>' +
+                ' <button data-code="' + (p.code || '') + '" class="delete-person-btn" type="button" style="background:#d9534f;margin-left:6px">Delete</button>' +
+                ' <button data-code="' + (p.code || '') + '" data-family="' + (p.family || '') + '" class="copy-link-btn" type="button" style="background:#17a2b8;margin-left:6px">Copy Link</button>' +
+              '</td>' +
+              '</tr>';
         });
         html += '</tbody></table>';
         peopleListEl.innerHTML = html;
@@ -386,6 +467,40 @@
                   loadAdminItems();
                 } catch (err) {
                   alert('Error deleting person: ' + err.message);
+                }
+              });
+            });
+
+            // copy link buttons
+            Array.from(peopleListEl.querySelectorAll('.copy-link-btn')).forEach(b => {
+              b.addEventListener('click', async (e) => {
+                const code = e.target.getAttribute('data-code');
+                const famAttr = e.target.getAttribute('data-family');
+                const family = famAttr && famAttr.trim() ? famAttr : ((adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default');
+                const base = window.location.origin;
+                const link = base + '/?code=' + encodeURIComponent(code) + '&family=' + encodeURIComponent(family);
+
+                // attempt modern clipboard API first
+                try {
+                  if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(link);
+                  } else {
+                    // fallback: textarea + execCommand
+                    const ta = document.createElement('textarea');
+                    ta.value = link;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                  }
+
+                  const origText = e.target.textContent;
+                  e.target.textContent = 'Copied!';
+                  setTimeout(() => { e.target.textContent = origText; }, 1600);
+                  const respEl = document.getElementById('response');
+                  if (respEl) respEl.textContent = 'Copied link for ' + code + ': ' + link;
+                } catch (err) {
+                  alert('Copy failed: ' + (err && err.message ? err.message : err));
                 }
               });
             });
@@ -485,8 +600,9 @@
       // initial load: families then people and items
       await loadAdminFamilies();
       if (adminFamilySelect) {
-        adminFamilySelect.addEventListener('change', () => { loadPeople(); loadAdminItems(); });
+        adminFamilySelect.addEventListener('change', () => { loadPeople(); loadAdminItems(); populateRecipientOptions(); });
       }
+      await populateRecipientOptions();
       loadPeople();
       loadAdminItems();
     });
