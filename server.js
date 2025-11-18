@@ -266,6 +266,86 @@ app.put('/api/admin/item/:id', (req, res) => {
   res.json({ success: true, item });
 });
 
+// --- Admin: update a person (preferences, name) ---
+app.put('/api/admin/person/:code', (req, res) => {
+  const code = req.params.code;
+  if (!code) return res.status(400).json({ success: false, message: 'Missing person code' });
+
+  const data = loadData();
+  if (!Array.isArray(data.people)) data.people = [];
+
+  const person = data.people.find(p => String(p.code) === String(code));
+  if (!person) return res.status(404).json({ success: false, message: 'Person not found' });
+
+  const body = req.body || {};
+  if ('name' in body) person.name = String(body.name || '');
+  if ('preferences' in body) person.preferences = body.preferences || '';
+
+  try {
+    saveData(data);
+  } catch (err) {
+    console.error('Error saving data.json on person update', err);
+    return res.status(500).json({ success: false, message: 'Failed to save' });
+  }
+
+  res.json({ success: true, person });
+});
+
+// --- Admin: create a person ---
+app.post('/api/admin/person', (req, res) => {
+  const body = req.body || {};
+  const code = (body.code || '').toString().trim();
+  const name = (body.name || '').toString().trim();
+  const preferences = body.preferences || '';
+
+  if (!code) return res.status(400).json({ success: false, message: 'Missing code' });
+
+  const data = loadData();
+  if (!Array.isArray(data.people)) data.people = [];
+
+  // Ensure code uniqueness (case-insensitive)
+  if (data.people.find(p => String(p.code).toLowerCase() === code.toLowerCase())) {
+    return res.status(409).json({ success: false, message: 'Person with this code already exists' });
+  }
+
+  const person = { code, name, preferences };
+  data.people.push(person);
+
+  try { saveData(data); } catch (err) {
+    console.error('Error saving data.json on person create', err);
+    return res.status(500).json({ success: false, message: 'Failed to save' });
+  }
+
+  res.json({ success: true, person });
+});
+
+// --- Admin: delete a person (and their items) ---
+app.delete('/api/admin/person/:code', (req, res) => {
+  const code = req.params.code;
+  if (!code) return res.status(400).json({ success: false, message: 'Missing code' });
+
+  const data = loadData();
+  if (!Array.isArray(data.people)) data.people = [];
+
+  const idx = data.people.findIndex(p => String(p.code) === String(code));
+  if (idx === -1) return res.status(404).json({ success: false, message: 'Person not found' });
+
+  // Remove person
+  data.people.splice(idx, 1);
+
+  // Also remove items associated with this person to keep data consistent
+  if (Array.isArray(data.items)) {
+    data.items = data.items.filter(it => String(it.recipientCode) !== String(code));
+  }
+
+  try { saveData(data); } catch (err) {
+    console.error('Error saving data.json on person delete', err);
+    return res.status(500).json({ success: false, message: 'Failed to save' });
+  }
+
+  res.json({ success: true });
+});
+
 
 // GET /api/recipients?code=LAUREN
 app.get('/api/recipients', (req, res) => {
@@ -373,6 +453,26 @@ app.post('/api/unclaim', (req, res) => {
   saveData(data);
 
   res.json({ success: true });
+});
+
+
+// --- Ensure API errors return JSON (instead of HTML error pages) ---
+// Catch unmatched API routes and return JSON 404
+app.use('/api', (req, res, next) => {
+  // If we reach here, no API route matched
+  res.status(404).json({ success: false, message: 'API endpoint not found' });
+});
+
+// Error handler: convert errors (including body-parser errors) to JSON for API paths
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err && err.stack ? err.stack : err);
+  if (req.path && String(req.path).startsWith('/api')) {
+    const status = err && err.status ? err.status : 500;
+    const message = err && err.message ? err.message : 'Internal server error';
+    return res.status(status).json({ success: false, message });
+  }
+  // For non-API requests, delegate to default handler (will likely return HTML)
+  next(err);
 });
 
 // --- start server ---

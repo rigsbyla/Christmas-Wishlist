@@ -435,6 +435,14 @@
 
       let html = '<h2>' + person.name + '\'s wishlist</h2>';
 
+        // Person-specific preferences (if present)
+        if (person.preferences) {
+          html += '<div class="person-preferences" style="margin:8px 0 12px 0;padding:10px;border-radius:8px;background:#fbfbff;border:1px solid #eef;">';
+          html += '<strong>Preferences:</strong>';
+          html += '<div style="margin-top:6px; white-space:pre-wrap; color:#333">' + (person.preferences || '') + '</div>';
+          html += '</div>';
+        }
+
       if (isMyOwnList) {
         html += '<p>This is your own wishlist. You won\'t see claim info here.</p>';
         if (WISHLIST_FORM_URL) {
