@@ -72,164 +72,170 @@
   </div>
 
   <script>
-    const form = document.getElementById('upload-form');
-    const resp = document.getElementById('response');
+    document.addEventListener('DOMContentLoaded', () => {
+      const form        = document.getElementById('upload-form');
+      const resp        = document.getElementById('response');
+      const adminListEl = document.getElementById('admin-list');
+      const refreshBtn  = document.getElementById('refresh-items');
+      const editArea    = document.getElementById('edit-area');
+      const editForm    = document.getElementById('edit-form');
 
-    const adminListEl = document.getElementById('admin-list');
-    const refreshBtn = document.getElementById('refresh-items');
-    const editArea   = document.getElementById('edit-area');
-    const editForm   = document.getElementById('edit-form');
-
-    // --- CSV upload handler ---
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const fileInput = document.getElementById('csvfile');
-      if (!fileInput.files || !fileInput.files[0]) {
-        resp.textContent = 'Select a file first.';
-        return;
-      }
-
-      resp.textContent = 'Reading file...';
-      const txt = await fileInput.files[0].text();
-
-      resp.textContent = 'Uploading...';
-
-      try {
-        const r = await fetch('/api/admin/upload-csv-text', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ csv: txt })
-        });
-
-        const json = await r.json();
-        resp.textContent = JSON.stringify(json, null, 2);
-
-        // refresh item list after upload
-        loadAdminItems();
-      } catch (err) {
-        resp.textContent = 'Network error: ' + err.message;
-      }
-    });
-
-    // --- Admin items listing / edit ---
-
-    async function loadAdminItems() {
-      adminListEl.textContent = 'Loading...';
-      try {
-        const r = await fetch('/api/admin/items');
-        const json = await r.json();
-        renderAdminList(json.items || []);
-      } catch (err) {
-        adminListEl.textContent = 'Error loading items: ' + err.message;
-      }
-    }
-
-    function renderAdminList(items) {
-      if (!items || items.length === 0) {
-        adminListEl.innerHTML = '<p>No items found.</p>';
-        return;
-      }
-
-      let html = '<table>';
-      html += '<thead><tr>' +
-        '<th style="text-align:left">ID</th>' +
-        '<th>Recipient</th>' +
-        '<th>Item</th>' +
-        '<th>Notes</th>' +
-        '<th>Tags</th>' +
-        '<th></th>' +
-        '</tr></thead><tbody>';
-
-      items.forEach(it => {
-        const id = it.id ?? it.itemId ?? '';
-        const tagsText = Array.isArray(it.tags) ? it.tags.join(',') : (it.tag || '');
-
-        html += '<tr>' +
-          '<td>' + id + '</td>' +
-          '<td>' + (it.recipientCode || '') + ' / ' + (it.recipientName || '') + '</td>' +
-          '<td>' + (it.itemName || '') + '</td>' +
-          '<td>' + (it.details || it.notes || '') + '</td>' +
-          '<td>' + tagsText + '</td>' +
-          '<td><button data-id="' + id + '" class="edit-btn" type="button">Edit</button></td>' +
-          '</tr>';
-      });
-
-      html += '</tbody></table>';
-      adminListEl.innerHTML = html;
-
-      Array.from(adminListEl.querySelectorAll('.edit-btn')).forEach(b => {
-        b.addEventListener('click', (e) => {
-          const id = e.target.getAttribute('data-id');
-          openEdit(id);
-        });
-      });
-    }
-
-    async function openEdit(id) {
-      try {
-        const r = await fetch('/api/admin/items');
-        const json = await r.json();
-        const items = json.items || [];
-        const it = items.find(x => String(x.id) === String(id) || String(x.itemId) === String(id));
-        if (!it) {
-          alert('Item not found');
+      // --- CSV upload handler ---
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fileInput = document.getElementById('csvfile');
+        if (!fileInput.files || !fileInput.files[0]) {
+          resp.textContent = 'Select a file first.';
           return;
         }
 
-        document.getElementById('edit-id').value             = it.id || it.itemId || '';
-        document.getElementById('edit-recipientCode').value  = it.recipientCode || '';
-        document.getElementById('edit-recipientName').value  = it.recipientName || '';
-        document.getElementById('edit-itemName').value       = it.itemName || '';
-        document.getElementById('edit-details').value        = it.details || it.notes || '';
-        document.getElementById('edit-url').value            = it.url || '';
-        document.getElementById('edit-tags').value           = (Array.isArray(it.tags) ? it.tags.join(',') : (it.tag || ''));
+        resp.textContent = 'Reading file...';
+        const txt = await fileInput.files[0].text();
 
-        editArea.style.display = 'block';
-        editArea.scrollIntoView({ behavior: 'smooth' });
-      } catch (err) {
-        alert('Error opening item: ' + err.message);
+        resp.textContent = 'Uploading...';
+
+        try {
+          const r = await fetch('/api/admin/upload-csv-text', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ csv: txt })
+          });
+
+          const json = await r.json();
+          resp.textContent = JSON.stringify(json, null, 2);
+
+          // refresh item list after upload
+          loadAdminItems();
+        } catch (err) {
+          resp.textContent = 'Network error: ' + err.message;
+        }
+      });
+
+      // --- Admin items listing / edit ---
+
+      async function loadAdminItems() {
+        adminListEl.textContent = 'Loading...';
+        try {
+          const r = await fetch('/api/admin/items');
+          if (!r.ok) {
+            adminListEl.textContent = 'Error: ' + r.status + ' ' + r.statusText;
+            return;
+          }
+          const json = await r.json();
+          renderAdminList(json.items || []);
+        } catch (err) {
+          adminListEl.textContent = 'Error loading items: ' + err.message;
+        }
       }
-    }
 
-    editForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const id = document.getElementById('edit-id').value;
-      const payload = {
-        recipientCode:  document.getElementById('edit-recipientCode').value,
-        recipientName:  document.getElementById('edit-recipientName').value,
-        itemName:       document.getElementById('edit-itemName').value,
-        details:        document.getElementById('edit-details').value,
-        url:            document.getElementById('edit-url').value,
-        tags:           document.getElementById('edit-tags').value  // comma-separated string
-      };
-
-      try {
-        const r = await fetch('/api/admin/item/' + encodeURIComponent(id), {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        const json = await r.json();
-        if (!json.success) {
-          alert('Save failed: ' + (json.message || ''));
+      function renderAdminList(items) {
+        if (!items || items.length === 0) {
+          adminListEl.innerHTML = '<p>No items found.</p>';
           return;
         }
-        resp.textContent = 'Saved item ' + id;
+
+        let html = '<table>';
+        html += '<thead><tr>' +
+          '<th style="text-align:left">ID</th>' +
+          '<th>Recipient</th>' +
+          '<th>Item</th>' +
+          '<th>Notes</th>' +
+          '<th>Tags</th>' +
+          '<th></th>' +
+          '</tr></thead><tbody>';
+
+        items.forEach(it => {
+          const id = it.id ?? it.itemId ?? '';
+          const tagsText = Array.isArray(it.tags) ? it.tags.join(',') : (it.tag || '');
+
+          html += '<tr>' +
+            '<td>' + id + '</td>' +
+            '<td>' + (it.recipientCode || '') + ' / ' + (it.recipientName || '') + '</td>' +
+            '<td>' + (it.itemName || '') + '</td>' +
+            '<td>' + (it.details || it.notes || '') + '</td>' +
+            '<td>' + tagsText + '</td>' +
+            '<td><button data-id="' + id + '" class="edit-btn" type="button">Edit</button></td>' +
+            '</tr>';
+        });
+
+        html += '</tbody></table>';
+        adminListEl.innerHTML = html;
+
+        Array.from(adminListEl.querySelectorAll('.edit-btn')).forEach(b => {
+          b.addEventListener('click', (e) => {
+            const id = e.target.getAttribute('data-id');
+            openEdit(id);
+          });
+        });
+      }
+
+      async function openEdit(id) {
+        try {
+          const r = await fetch('/api/admin/items');
+          const json = await r.json();
+          const items = json.items || [];
+          const it = items.find(x => String(x.id) === String(id) || String(x.itemId) === String(id));
+          if (!it) {
+            alert('Item not found');
+            return;
+          }
+
+          document.getElementById('edit-id').value            = it.id || it.itemId || '';
+          document.getElementById('edit-recipientCode').value = it.recipientCode || '';
+          document.getElementById('edit-recipientName').value = it.recipientName || '';
+          document.getElementById('edit-itemName').value      = it.itemName || '';
+          document.getElementById('edit-details').value       = it.details || it.notes || '';
+          document.getElementById('edit-url').value           = it.url || '';
+          document.getElementById('edit-tags').value          =
+            (Array.isArray(it.tags) ? it.tags.join(',') : (it.tag || ''));
+
+          editArea.style.display = 'block';
+          editArea.scrollIntoView({ behavior: 'smooth' });
+        } catch (err) {
+          alert('Error opening item: ' + err.message);
+        }
+      }
+
+      editForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('edit-id').value;
+        const payload = {
+          recipientCode:  document.getElementById('edit-recipientCode').value,
+          recipientName:  document.getElementById('edit-recipientName').value,
+          itemName:       document.getElementById('edit-itemName').value,
+          details:        document.getElementById('edit-details').value,
+          url:            document.getElementById('edit-url').value,
+          tags:           document.getElementById('edit-tags').value  // comma-separated string
+        };
+
+        try {
+          const r = await fetch('/api/admin/item/' + encodeURIComponent(id), {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const json = await r.json();
+          if (!json.success) {
+            alert('Save failed: ' + (json.message || ''));
+            return;
+          }
+          resp.textContent = 'Saved item ' + id;
+          editArea.style.display = 'none';
+          loadAdminItems();
+        } catch (err) {
+          alert('Error saving: ' + err.message);
+        }
+      });
+
+      document.getElementById('cancel-edit').addEventListener('click', () => {
         editArea.style.display = 'none';
-        loadAdminItems();
-      } catch (err) {
-        alert('Error saving: ' + err.message);
-      }
+      });
+
+      refreshBtn.addEventListener('click', loadAdminItems);
+
+      // Load items on page open
+      loadAdminItems();
     });
-
-    document.getElementById('cancel-edit').addEventListener('click', () => {
-      editArea.style.display = 'none';
-    });
-
-    refreshBtn.addEventListener('click', loadAdminItems);
-
-    // Load items on page open
-    loadAdminItems();
   </script>
 </body>
 </html>

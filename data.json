@@ -1770,6 +1770,128 @@
       "tags": [
         "work related"
       ]
+    },
+    {
+      "id": 115,
+      "itemId": 115,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "I like tea but I don't have an easy way to to make it at home. Something for that.",
+      "details": "",
+      "url": "",
+      "tags": [
+        "specific requests"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "specific requests"
+    },
+    {
+      "id": 116,
+      "itemId": 116,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "chip clips",
+      "details": "",
+      "url": "",
+      "tags": [
+        "stocking stuffer",
+        "small",
+        "cheap"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "stocking stuffer/small/cheap"
+    },
+    {
+      "id": 117,
+      "itemId": 117,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "potted plant",
+      "details": "",
+      "url": "",
+      "tags": [
+        "medium"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "medium"
+    },
+    {
+      "id": 118,
+      "itemId": 118,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "120 or more sewing tape measure",
+      "details": "",
+      "url": "",
+      "tags": [
+        "hobbies"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "hobbies"
+    },
+    {
+      "id": 119,
+      "itemId": 119,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "barbeque pork rinds",
+      "details": "",
+      "url": "",
+      "tags": [
+        "food"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "food"
+    },
+    {
+      "id": 120,
+      "itemId": 120,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "bread",
+      "details": "",
+      "url": "",
+      "tags": [
+        "food"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "food"
+    },
+    {
+      "id": 121,
+      "itemId": 121,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "Scents",
+      "details": "scents that make me hungry: vanilla cinnamon creme brulee etc.",
+      "url": "",
+      "tags": [
+        "scents"
+      ],
+      "claimedByCode": "creme brulee",
+      "notes": "scents that make me hungry: vanilla cinnamon creme brulee etc.",
+      "tag": "scents"
+    },
+    {
+      "id": 122,
+      "itemId": 122,
+      "recipientCode": "TAYLOR",
+      "recipientName": "Taylor",
+      "itemName": "usb-c to car cigarette lighter adapter",
+      "details": "",
+      "url": "",
+      "tags": [
+        "useful"
+      ],
+      "claimedByCode": null,
+      "notes": "",
+      "tag": "useful"
     }
   ]
 }
