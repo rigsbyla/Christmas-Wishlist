@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Family Wishlist</title>
+  <meta charset="utf-8">
+  <base target="_top">
+  <!-- 👇 This line makes the layout scale properly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 16px;
       background: linear-gradient(135deg, #fff5f5, #f7faff, #f3ffe9);
-      background-attachment: fixed;
+      background-attachment: fixed; 
+      font-size: 16px; /* a little larger for readability */
     }
+
     .page-container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 30px auto;
       padding: 20px 28px;
-      background: rgba(255, 255, 255, 0.82); /* frosted glass */
+      background: rgba(255, 255, 255, 0.82);
       backdrop-filter: blur(6px);
       border-radius: 16px;
       box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      box-sizing: border-box;
     }
+
     h1 {
       font-size: 1.4rem;
     }
+
     .section-title {
       margin-top: 20px;
       font-weight: bold;
     }
 
-    /* Big recipient buttons */
+    .recipient-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
     .recipient-buttons button {
-      background: #fff0f2;            /* soft pink */
+      background: #fff0f2;
       border: 2px solid #ffd6dc;
       border-radius: 14px;
       padding: 12px 22px;
-      margin: 6px;
+      margin: 4px;
       font-size: 1.05rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.25s ease;
       box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      white-space: nowrap;
     }
+
     .recipient-buttons button:hover {
       background: #ffe3e8;
       border-color: #ffb7c2;
       box-shadow: 0 5px 10px rgba(0,0,0,0.12);
       transform: translateY(-2px);
     }
+
     .recipient-buttons button:active {
       transform: scale(0.97);
     }
 
-    /* Smaller action buttons */
     .action-btn {
-      background: #e8f8f0;            /* soft evergreen mint */
+      background: #e8f8f0;
       border: 2px solid #c7e8d1;
       border-radius: 10px;
       padding: 6px 14px;
       margin: 4px;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.25s ease;
     }
+
     .action-btn:hover {
-      background: #dcf5e7;            /* slightly brighter mint */
+      background: #dcf5e7;
       border-color: #b2e0c2;
       transform: translateY(-1px);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .action-btn:active {
       transform: scale(0.97);
     }
@@ -76,6 +94,7 @@
       border-top: 1px solid #ccc;
       padding-top: 8px;
     }
+
     .item {
       border-bottom: 1px solid #eee;
       padding: 6px 0;
@@ -85,40 +104,48 @@
       font-size: 0.9rem;
       margin-left: 8px;
     }
+
     .claimed {
       color: green;
     }
+
     .error {
       color: red;
     }
+
     .shopping-list {
       margin-top: 8px;
     }
+
     .small-note {
       font-size: 0.8rem;
       color: #555;
     }
 
-    /* Tag pills */
+    .tag-pill-row {
+      margin-top: 4px;
+    }
+
     .tag-pill {
       display: inline-block;
       padding: 2px 8px;
       border-radius: 999px;
-      background: #fff7df;          /* soft golden cookie color */
+      background: #fff7df;
       border: 1px solid #ffe7b3;
       font-size: 0.75rem;
       white-space: nowrap;
     }
 
-    /* Tag filter buttons */
     .tag-filter-bar {
       margin-top: 8px;
       margin-bottom: 8px;
     }
+
     .tag-filter-label {
       font-size: 0.8rem;
       margin-right: 4px;
     }
+
     .tag-filter-button {
       margin: 2px 4px;
       padding: 3px 10px;
@@ -128,19 +155,18 @@
       cursor: pointer;
       font-size: 0.8rem;
     }
+
     .tag-filter-button.active {
       border-color: #999;
       font-weight: bold;
     }
 
-    /* Right-side area in header for status + button */
     .item-actions {
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    /* Tags row below the title */
     .tag-row {
       display: flex;
       flex-wrap: wrap;
@@ -148,38 +174,84 @@
       margin: 4px 0;
     }
 
-    /* Item details / description */
     .item-details {
       margin: 2px 0;
     }
 
-    /* Link row */
     .item-link a {
       font-size: 0.85rem;
     }
 
-    /* "For: X" line on shopping list */
     .item-for {
       font-size: 0.85rem;
       margin: 2px 0;
       color: #555;
     }
 
-    /* A single horizontal item header row */
     .item-header-row {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* pushes claim button to far right */
-      flex-wrap: wrap; /* wraps nicely on mobile */
+      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 4px;
     }
 
-    /* Item title stays left */
     .item-title {
       font-weight: bold;
       font-size: 1rem;
       margin-right: 6px;
+    }
+
+    .tag-inline {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* 🔽 Mobile tweaks */
+    @media (max-width: 600px) {
+      body {
+        margin: 8px;
+        font-size: 17px;
+      }
+
+      .page-container {
+        margin: 16px 0;
+        padding: 16px 14px;
+        border-radius: 12px;
+      }
+
+      .recipient-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .recipient-buttons button {
+        width: 100%;
+        text-align: center;
+        margin: 4px 0;
+      }
+
+      /* Top action buttons (My Wishlist / My Shopping List) stack too */
+      .page-container > div > .action-btn {
+        width: 48%;
+      }
+
+      .page-container > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .item-header-row {
+        align-items: flex-start;
+      }
+
+      .item-actions {
+        margin-left: auto;
+      }
     }
     /* Instruction / steps box near top of page */
     .howto-box {
