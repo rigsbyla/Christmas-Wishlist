@@ -219,6 +219,53 @@ app.post('/api/admin/upload-csv-text', (req, res) => {
   res.json({ success: true, added: added.length });
   });
 
+// --- Admin: list items (for admin UI) ---
+app.get('/api/admin/items', (req, res) => {
+  const data = loadData();
+  // Return items as-is (they are normalized in loadData)
+  res.json({ items: data.items || [] });
+});
+
+// --- Admin: update an item by id ---
+app.put('/api/admin/item/:id', (req, res) => {
+  const id = Number(req.params.id);
+  if (!id) return res.status(400).json({ success: false, message: 'Invalid id' });
+
+  const data = loadData();
+  if (!Array.isArray(data.items)) data.items = [];
+
+  const item = data.items.find(i => Number(i.id) === id || Number(i.itemId) === id);
+  if (!item) return res.status(404).json({ success: false, message: 'Item not found' });
+
+  const body = req.body || {};
+  // Updatable fields
+  if ('recipientCode' in body) item.recipientCode = String(body.recipientCode || '');
+  if ('recipientName' in body) item.recipientName = String(body.recipientName || '');
+  if ('itemName' in body) item.itemName = String(body.itemName || '');
+  if ('details' in body) item.details = String(body.details || '');
+  if ('notes' in body) item.details = String(body.notes || item.details || '');
+  if ('url' in body) item.url = String(body.url || '');
+  if ('claimedByCode' in body) item.claimedByCode = body.claimedByCode || null;
+
+  if ('tags' in body) {
+    if (Array.isArray(body.tags)) item.tags = body.tags.map(String).map(t => t.trim()).filter(Boolean);
+    else if (typeof body.tags === 'string') item.tags = body.tags.split(/[\/|,;]+/).map(s => s.trim()).filter(Boolean);
+  }
+
+  // keep legacy fields in sync
+  item.notes = item.details;
+  item.tag = (item.tags && item.tags.join('/')) || '';
+
+  try {
+    saveData(data);
+  } catch (err) {
+    console.error('Error saving data.json on admin update', err);
+    return res.status(500).json({ success: false, message: 'Failed to save' });
+  }
+
+  res.json({ success: true, item });
+});
+
 
 // GET /api/recipients?code=LAUREN
 app.get('/api/recipients', (req, res) => {
