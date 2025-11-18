@@ -279,6 +279,30 @@ app.put('/api/admin/item/:id', (req, res) => {
   res.json({ success: true, item });
 });
 
+// --- Admin: delete an item by id ---
+app.delete('/api/admin/item/:id', (req, res) => {
+  const id = Number(req.params.id);
+  if (!id) return res.status(400).json({ success: false, message: 'Invalid id' });
+
+  const data = loadData();
+  if (!Array.isArray(data.items)) data.items = [];
+
+  const family = req.query.family || req.body.family || 'default';
+  const idx = data.items.findIndex(i => (Number(i.id) === id || Number(i.itemId) === id) && String(i.family || 'default') === String(family));
+  if (idx === -1) return res.status(404).json({ success: false, message: 'Item not found' });
+
+  data.items.splice(idx, 1);
+
+  try {
+    saveData(data);
+  } catch (err) {
+    console.error('Error saving data.json on item delete', err);
+    return res.status(500).json({ success: false, message: 'Failed to save' });
+  }
+
+  res.json({ success: true });
+});
+
 // --- Admin: update a person (preferences, name, family) ---
 app.put('/api/admin/person/:code', (req, res) => {
   const code = req.params.code;
