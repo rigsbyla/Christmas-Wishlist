@@ -278,7 +278,10 @@
             '<td>' + (it.itemName || '') + '</td>' +
             '<td>' + (it.details || it.notes || '') + '</td>' +
             '<td>' + tagsText + '</td>' +
-            '<td><button data-id="' + id + '" class="edit-btn" type="button">Edit</button></td>' +
+            '<td>' +
+              '<button data-id="' + id + '" class="edit-btn" type="button">Edit</button>' +
+              ' <button data-id="' + id + '" class="delete-item-btn" type="button" style="background:#d9534f;margin-left:6px">Delete</button>' +
+            '</td>' +
             '</tr>';
         });
 
@@ -289,6 +292,30 @@
           b.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
             openEdit(id);
+          });
+        });
+
+        Array.from(adminListEl.querySelectorAll('.delete-item-btn')).forEach(b => {
+          b.addEventListener('click', async (e) => {
+            const id = e.target.getAttribute('data-id');
+            if (!confirm('Delete item ' + id + '? This cannot be undone.')) return;
+            try {
+              const family = (adminFamilySelect && adminFamilySelect.value) ? adminFamilySelect.value : 'default';
+              const r = await fetch('/api/admin/item/' + encodeURIComponent(id) + '?family=' + encodeURIComponent(family), { method: 'DELETE' });
+              const json = await parseJsonSafe(r);
+              if (json && json.__nonJson) {
+                return alert('Server error: ' + json.raw);
+              }
+              if (!json.success) {
+                return alert('Delete failed: ' + (json.message || ''));
+              }
+              // show small confirmation in Response box and refresh list
+              const respEl = document.getElementById('response');
+              if (respEl) respEl.textContent = 'Deleted item ' + id;
+              loadAdminItems();
+            } catch (err) {
+              alert('Error deleting item: ' + err.message);
+            }
           });
         });
       }
